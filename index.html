@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/> -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dist/estilos.css">
+    <title>Document</title>
+</head>
+<body id="body" class="light">
+    <hr id="menu-line-hover" class="menu-line-hover">
+    <header class="menu-header">
+        <img class="menu-desktop-logo" src="img/logo-desktop.svg" alt="logo-gifos">
+        <img class="menu-mobile-logo" src="img/logo-mobile.svg" alt="logo-gifos">
+        <input type="checkbox" id="menu-mobile">
+        <label class="menu-mobile-cross" for="menu-mobile"><i class="fas fa-times"></i></label>
+        <!-- <label class="hamburguesa" for="menu-mobile"><i class="fas fa-bars"></i></lebel> -->
+        <ul class="menu-items">
+            <li id="bottom-modo-nocturno"><a class="anchor" id="boton-prueba"  href="#">MODO NOCTURNO</a></li>            
+            <li><a id="boton-prueba1" class="anchor" href="#">FAVORITOS</a></li>
+            <li><a id="boton-prueba2" class="anchor" href="#">MIS GIFOS</a></li>
+            <!-- <li id="buttom-create"><a href=""><img src="img/button-crear-gifo.svg" alt="boton Crear Gifos"></a></li> -->
+            <li id="buttom-create"><a href="#"><img src="img/button-crear-gifo.svg" alt="boton Crear Gifos"></a></li>
+        </ul>
+    </header>
+
+    <section class="section-serch">
+        <h2 class="title-section-serch">Inspírate, busca, guarda, y crea <br>los mejores <span class="span-title-section">GIFOS</span></h2>
+        <figure class="figure-section-serch">
+            <img class="section-serch-img" src="img/ilustra_header.svg" alt="imagen animada">
+            <form id="form" action="">
+                <input id="input-search" type="search" class="input-search" placeholder="Busca GIFOS y más">
+            </form>
+        </figure>
+    </section>
+
+    <main class="main">
+        <h3 class="main-title">Trending:</h3>
+        <p class="main-p">Reactions, Entertainment, Sports, Stickers, Artists</p>
+        <div class="render-gifs" id="render-gifs">
+            <!-- <div class="main-render-img"></div>
+            <div class="main-render-img"></div>
+            <div class="main-render-img"></div>
+            <div class="main-render-img"></div>
+            <div class="main-render-img"></div> -->
+        </div>
+        <div class="div-button" id="div-button">
+            <!-- <button class="button-ver-mas-class" id="button-ver-mas">ver mas</button> -->
+        </div>
+    </main>
+
+    <section id="trending-section" class="trending-section">
+        <div class="trending-section-titles">
+            <h3>Trending GIFOS</h3>
+            <p>Mira los últimos GIFO de nuestra comunidad.</p>
+        </div>
+        <div class="trending-section-container">
+            <div class="trending-section-slider">
+                <div class="button-slider-left" alt="boton slider left"></div>
+                <div class="container-trends" id="container-trends">    
+                <!-- <div class="render-gif">
+                        <figure></figure>
+                    </div>
+                    <div class="render-gif">
+                        <figure></figure>
+                    </div>
+                    <div class="render-gif">
+                        <figure></figure>
+                    </div> -->
+                </div>
+                <div class="button-slider-right" alt="boton slider left"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-social-medias">
+            <p>Compartir en:</p>
+                <div class="footer-icono-facebook"></div>
+                <div class="footer-icono-twitter"></div>
+                <div class="footer-icono-instagram"></div>
+        </div>
+        <p class="footer-rights">© GIFOS 2020 All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/5c58b8374d.js" crossorigin="anonymous"></script>
+    <script src="index.js" type="module"></script>
+    <script src="api_key.js"></script>
+</body>
+</html>
