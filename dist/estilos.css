@@ -178,11 +178,12 @@
 .trending-section .trending-section-container .trending-section-slider .container-trends {
   display: flex;
   justify-content: space-between;
+  width: 1071px;
+  overflow-x: hidden;
 }
 .trending-section .trending-section-container .trending-section-slider .container-trends .render-gif {
   width: 357px;
   height: 275px;
-  background-color: white;
 }
 
 .trending-dark {

@@ -25,6 +25,21 @@ function toggleRender(){
     
 }
 
+
+// ----------- ----------- AUTOCOMPLETADO DE BUSQUEDA ----------- ------------- 
+
+const letrasAutocompletado = document.getElementById('input-search')
+letrasAutocompletado.addEventListener('submit', autocompletado)
+
+async function autocompletado(){
+    let res = await fetch (`api.giphy.com/v1/gifs/search/tags?api_key=${API_KEY}&q=${letrasAutocompletado.value}`)
+    let resJson = res.json()
+    console.log(resJson)
+    let datos = resJson.data
+    console.log(datos)
+}
+
+
 // ----------- ----------- RENDERIZADO DE GIFS SEARCH ----------- ------------- 
 
 const inputSearch = document.getElementById('form');
@@ -101,7 +116,7 @@ function renderButtonVerMas(){
 // ----------- ----------- RENDERIZADO DE GIFS TRENDINGS ----------- ------------- 
 
 async function renderTrends(){
-    let response = await fetch (`https://api.giphy.com/v1/gifs/trending?api_key=BpPaoUualXmjHhjGeOHKGBmKzx12PtYV&limit=3&rating=g`)
+    let response = await fetch (`https://api.giphy.com/v1/gifs/trending?api_key=BpPaoUualXmjHhjGeOHKGBmKzx12PtYV`)
     let responseJson = await response.json()
     let gifsTrends = await responseJson.data
     // console.log(gifsTrends)
@@ -122,3 +137,21 @@ async function renderTrends(){
 
 }
 renderTrends()
+
+// ----------- ----------- SLIDER DE GIFS TRENDINGS ----------- ------------- 
+
+const contenedorSlider = document.getElementById('container-trends')
+const flechaIzquierda = document.getElementById('flecha-izquierda')
+const flechaDerecha = document.getElementById('flecha-derecha')
+
+let sliderWidth = contenedorSlider.offsetWidth
+// console.log(sliderWidth)
+flechaDerecha.addEventListener('click', () =>{
+    contenedorSlider.scrollLeft = sliderWidth += 357;
+}
+)
+
+flechaIzquierda.addEventListener('click', () =>{
+    contenedorSlider.scrollLeft = sliderWidth -= 357;
+}
+)

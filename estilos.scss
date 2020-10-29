@@ -72,6 +72,9 @@ $color-hover: #9CAFC3;
             color: $color-green;
         }
     }
+    // .div-section-serch{
+
+    // }
     form .input-search{
         width: 100%;
         border:solid 1px $color-violet;
@@ -192,10 +195,11 @@ $color-hover: #9CAFC3;
             .container-trends{
                 display: flex;
                 justify-content: space-between;
+                width: 1071px;
+                overflow-x: hidden;
                 .render-gif{
                     width:357px;
                     height:275px;
-                    background-color: white;
                 }
             }
         }

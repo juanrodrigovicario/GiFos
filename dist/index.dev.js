@@ -20,6 +20,34 @@ function toggleRender() {
 
   document.getElementById('input-search').classList.toggle('dark');
   document.getElementById('trending-section').classList.toggle('trending-dark');
+} // ----------- ----------- AUTOCOMPLETADO DE BUSQUEDA ----------- ------------- 
+
+
+var letrasAutocompletado = document.getElementById('input-search');
+letrasAutocompletado.addEventListener('submit', autocompletado);
+
+function autocompletado() {
+  var res, resJson, datos;
+  return regeneratorRuntime.async(function autocompletado$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return regeneratorRuntime.awrap(fetch("api.giphy.com/v1/gifs/search/tags?api_key=".concat(_api_key.API_KEY, "&q=").concat(letrasAutocompletado.value)));
+
+        case 2:
+          res = _context.sent;
+          resJson = res.json();
+          console.log(resJson);
+          datos = resJson.data;
+          console.log(datos);
+
+        case 7:
+        case "end":
+          return _context.stop();
+      }
+    }
+  });
 } // ----------- ----------- RENDERIZADO DE GIFS SEARCH ----------- ------------- 
 
 
@@ -31,22 +59,22 @@ inputSearch.addEventListener('submit', renderGifs); // inputSearch.addEventListe
 
 function renderGifs() {
   var userSearch, response, gifsResponse, gifs;
-  return regeneratorRuntime.async(function renderGifs$(_context) {
+  return regeneratorRuntime.async(function renderGifs$(_context2) {
     while (1) {
-      switch (_context.prev = _context.next) {
+      switch (_context2.prev = _context2.next) {
         case 0:
           userSearch = document.getElementById('input-search').value; // console.log(userSearch)
 
-          _context.next = 3;
+          _context2.next = 3;
           return regeneratorRuntime.awrap(fetch("https://api.giphy.com/v1/gifs/search?api_key=".concat(_api_key.API_KEY, "&q=").concat(userSearch, "&limit=12&offset=$0&rating=g&lang=en")));
 
         case 3:
-          response = _context.sent;
-          _context.next = 6;
+          response = _context2.sent;
+          _context2.next = 6;
           return regeneratorRuntime.awrap(response.json());
 
         case 6:
-          gifsResponse = _context.sent;
+          gifsResponse = _context2.sent;
           gifs = gifsResponse.data; // console.log(gifs.data)
           // let gif = gifs.data[0].images.original.url
           // console.log(gif)
@@ -66,7 +94,7 @@ function renderGifs() {
 
         case 10:
         case "end":
-          return _context.stop();
+          return _context2.stop();
       }
     }
   });
@@ -89,22 +117,22 @@ var offset = 0;
 
 function render12GIfMas() {
   var userSearch, response, jsonResponse, responseData;
-  return regeneratorRuntime.async(function render12GIfMas$(_context2) {
+  return regeneratorRuntime.async(function render12GIfMas$(_context3) {
     while (1) {
-      switch (_context2.prev = _context2.next) {
+      switch (_context3.prev = _context3.next) {
         case 0:
           offset += 12;
           userSearch = document.getElementById('input-search').value;
-          _context2.next = 4;
+          _context3.next = 4;
           return regeneratorRuntime.awrap(fetch("https://api.giphy.com/v1/gifs/search?api_key=".concat(_api_key.API_KEY, "&q=").concat(userSearch, "&limit=12&offset=").concat(offset, "&rating=g&lang=en")));
 
         case 4:
-          response = _context2.sent;
-          _context2.next = 7;
+          response = _context3.sent;
+          _context3.next = 7;
           return regeneratorRuntime.awrap(response.json());
 
         case 7:
-          jsonResponse = _context2.sent;
+          jsonResponse = _context3.sent;
           // console.log(jsonResponse)
           responseData = jsonResponse.data; // console.log(responseData)
 
@@ -121,7 +149,7 @@ function render12GIfMas() {
 
         case 10:
         case "end":
-          return _context2.stop();
+          return _context3.stop();
       }
     }
   });
@@ -130,25 +158,25 @@ function render12GIfMas() {
 
 function renderTrends() {
   var response, responseJson, gifsTrends;
-  return regeneratorRuntime.async(function renderTrends$(_context3) {
+  return regeneratorRuntime.async(function renderTrends$(_context4) {
     while (1) {
-      switch (_context3.prev = _context3.next) {
+      switch (_context4.prev = _context4.next) {
         case 0:
-          _context3.next = 2;
-          return regeneratorRuntime.awrap(fetch("https://api.giphy.com/v1/gifs/trending?api_key=BpPaoUualXmjHhjGeOHKGBmKzx12PtYV&limit=3&rating=g"));
+          _context4.next = 2;
+          return regeneratorRuntime.awrap(fetch("https://api.giphy.com/v1/gifs/trending?api_key=BpPaoUualXmjHhjGeOHKGBmKzx12PtYV"));
 
         case 2:
-          response = _context3.sent;
-          _context3.next = 5;
+          response = _context4.sent;
+          _context4.next = 5;
           return regeneratorRuntime.awrap(response.json());
 
         case 5:
-          responseJson = _context3.sent;
-          _context3.next = 8;
+          responseJson = _context4.sent;
+          _context4.next = 8;
           return regeneratorRuntime.awrap(responseJson.data);
 
         case 8:
-          gifsTrends = _context3.sent;
+          gifsTrends = _context4.sent;
           // console.log(gifsTrends)
           gifsTrends.forEach(function (gif) {
             var containerTrends = document.getElementById('container-trends');
@@ -164,10 +192,22 @@ function renderTrends() {
 
         case 10:
         case "end":
-          return _context3.stop();
+          return _context4.stop();
       }
     }
   });
 }
 
-renderTrends();
+renderTrends(); // ----------- ----------- SLIDER DE GIFS TRENDINGS ----------- ------------- 
+
+var contenedorSlider = document.getElementById('container-trends');
+var flechaIzquierda = document.getElementById('flecha-izquierda');
+var flechaDerecha = document.getElementById('flecha-derecha');
+var sliderWidth = contenedorSlider.offsetWidth; // console.log(sliderWidth)
+
+flechaDerecha.addEventListener('click', function () {
+  contenedorSlider.scrollLeft = sliderWidth += 357;
+});
+flechaIzquierda.addEventListener('click', function () {
+  contenedorSlider.scrollLeft = sliderWidth -= 357;
+});

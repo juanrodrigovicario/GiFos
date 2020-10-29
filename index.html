@@ -28,12 +28,16 @@
 
     <section class="section-serch">
         <h2 class="title-section-serch">Inspírate, busca, guarda, y crea <br>los mejores <span class="span-title-section">GIFOS</span></h2>
-        <figure class="figure-section-serch">
+        <div class="div-section-serch">
             <img class="section-serch-img" src="img/ilustra_header.svg" alt="imagen animada">
             <form id="form" action="">
-                <input id="input-search" type="search" class="input-search" placeholder="Busca GIFOS y más">
+                <input id="input-search" type="search" class="input-search" placeholder="Busca GIFOS y más" autocomplete="off">
             </form>
-        </figure>
+            <div class="suggestions"></div>
+            <div>auto</div>
+            <div>auto</div>
+            <div>auto</div>
+        </div>
     </section>
 
     <main class="main">
@@ -58,7 +62,7 @@
         </div>
         <div class="trending-section-container">
             <div class="trending-section-slider">
-                <div class="button-slider-left" alt="boton slider left"></div>
+                <div id="flecha-izquierda" class="button-slider-left" alt="boton slider left"></div>
                 <div class="container-trends" id="container-trends">    
                 <!-- <div class="render-gif">
                         <figure></figure>
@@ -70,7 +74,7 @@
                         <figure></figure>
                     </div> -->
                 </div>
-                <div class="button-slider-right" alt="boton slider left"></div>
+                <div id="flecha-derecha" class="button-slider-right" alt="boton slider left"></div>
             </div>
         </div>
     </section>
