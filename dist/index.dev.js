@@ -64,7 +64,7 @@ function autocompletado() {
               var title = document.getElementById('main-title');
               var p = document.getElementById('main-p');
               p.innerHTML = '';
-              title.innerHTML = "".concat(userSearch.toUpperCase(word.name));
+              title.innerHTML = "".concat(word.name.toUpperCase());
               title.style.fontSize = '35px';
             });
           });
@@ -88,10 +88,12 @@ var inputSearch = document.getElementById('form');
 inputSearch.addEventListener('submit', function (event) {
   event.preventDefault();
 });
-inputSearch.addEventListener('submit', renderGifs); // inputSearch.addEventListener('submit', renderButtonVerMas)
+inputSearch.addEventListener('submit', renderGifs); // let userSearch = document.getElementById('input-search').value
+// inputSearch.addEventListener('submit', renderNameSearch(userSearch))
+// inputSearch.addEventListener('submit', renderButtonVerMas)
 
 function renderGifs() {
-  var userSearch, response, gifsResponse, gifs, renderGifs;
+  var userSearch, response, gifsResponse, gifs, renderGifs, renderButtonMas;
   return regeneratorRuntime.async(function renderGifs$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
@@ -123,12 +125,14 @@ function renderGifs() {
             img.setAttribute('class', 'main-render-img');
             divContenerImg.appendChild(img);
             renderGifs.appendChild(divContenerImg);
-            renderNameSearch(userSearch);
           });
+          renderNameSearch(userSearch);
           delateSuggestios();
+          renderButtonMas = document.querySelector('#div-button');
+          renderButtonMas.innerHTML = '';
           renderButtonVerMas();
 
-        case 13:
+        case 16:
         case "end":
           return _context2.stop();
       }

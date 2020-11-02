@@ -61,7 +61,7 @@ async function autocompletado(){
             const title = document.getElementById('main-title')
             const p = document.getElementById('main-p')
             p.innerHTML = '';
-            title.innerHTML =`${userSearch.toUpperCase(word.name)}`;
+            title.innerHTML =`${word.name.toUpperCase()}`;
             title.style.fontSize = '35px';
         })
     })
@@ -85,6 +85,8 @@ inputSearch.addEventListener('submit',function(event){
 })
 
 inputSearch.addEventListener('submit', renderGifs)
+// let userSearch = document.getElementById('input-search').value
+// inputSearch.addEventListener('submit', renderNameSearch(userSearch))
 // inputSearch.addEventListener('submit', renderButtonVerMas)
 
 async function renderGifs(){
@@ -110,9 +112,11 @@ async function renderGifs(){
         divContenerImg.appendChild(img)
         renderGifs.appendChild(divContenerImg)
 
-        renderNameSearch(userSearch)
     })
+    renderNameSearch(userSearch)
     delateSuggestios()
+    const renderButtonMas = document.querySelector('#div-button')
+    renderButtonMas.innerHTML = '';
     renderButtonVerMas()
 }
 
