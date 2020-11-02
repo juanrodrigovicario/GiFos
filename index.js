@@ -29,18 +29,55 @@ function toggleRender(){
 // ----------- ----------- AUTOCOMPLETADO DE BUSQUEDA ----------- ------------- 
 
 const letrasAutocompletado = document.getElementById('input-search')
-letrasAutocompletado.addEventListener('submit', autocompletado)
+letrasAutocompletado.addEventListener('keyup', autocompletado)
+
+// letrasAutocompletado.addEventListener('key', function(){
+//     console.log(letrasAutocompletado.value)
+// })
 
 async function autocompletado(){
-    let res = await fetch (`api.giphy.com/v1/gifs/search/tags?api_key=${API_KEY}&q=${letrasAutocompletado.value}`)
-    let resJson = res.json()
-    console.log(resJson)
-    let datos = resJson.data
-    console.log(datos)
+    let letras =  letrasAutocompletado.value;
+    let res = await fetch(`https://api.giphy.com/v1/gifs/search/tags?api_key=${API_KEY}&q=${letras}`);
+    let resJason = await res.json()
+    let suggestions = resJason.data
+    const cuadroBusqueda = document.getElementById('cuadro-de-busqueda')
+    const divConteiner = document.getElementById('suggestions')
+    divConteiner.innerHTML = '';
+    
+    suggestions.forEach( word => {
+        const divsSuggestion = document.createElement('div')
+        const suggestion = document.createTextNode(`${word.name}`)
+
+        divsSuggestion.appendChild(suggestion)
+        divsSuggestion.setAttribute('class', 'suggestion')
+        divConteiner.appendChild(divsSuggestion)
+        divConteiner.setAttribute('class', 'suggestions')
+        cuadroBusqueda.appendChild(divConteiner)
+
+        divsSuggestion.addEventListener('click', renderGifs)
+        divsSuggestion.addEventListener('click', delateSuggestios)
+        divsSuggestion.addEventListener('click', function(){
+            // console.log(word.name)
+            const title = document.getElementById('main-title')
+            const p = document.getElementById('main-p')
+            p.innerHTML = '';
+            title.innerHTML =`${userSearch.toUpperCase(word.name)}`;
+            title.style.fontSize = '35px';
+        })
+    })
+
+}
+
+// ----------- ----------- elimina las sugerencias del buscador  ----------- ------------- 
+
+function delateSuggestios(){
+    const divConteiner = document.getElementById('suggestions')
+    divConteiner.innerHTML = '';
 }
 
 
-// ----------- ----------- RENDERIZADO DE GIFS SEARCH ----------- ------------- 
+
+// ----------- ----------- RENDERIZADO DE GIFS - SEARCH ----------- ------------- 
 
 const inputSearch = document.getElementById('form');
 inputSearch.addEventListener('submit',function(event){
@@ -59,9 +96,11 @@ async function renderGifs(){
     // console.log(gifs.data)
     // let gif = gifs.data[0].images.original.url
     // console.log(gif)
+    const renderGifs = document.getElementById('render-gifs')
+    renderGifs.innerHTML = '';
+
     gifs.forEach(function(element){
         // console.log(gif.images.original.url)
-        const renderGifs = document.getElementById('render-gifs')
         const url = element.images.original.url
         const img = document.createElement('img')
         const divContenerImg = document.createElement('div')
@@ -71,11 +110,24 @@ async function renderGifs(){
         divContenerImg.appendChild(img)
         renderGifs.appendChild(divContenerImg)
 
+        renderNameSearch(userSearch)
     })
+    delateSuggestios()
     renderButtonVerMas()
 }
 
+
+function renderNameSearch(userSearch){
+    const title = document.getElementById('main-title')
+    const p = document.getElementById('main-p')
+    p.innerHTML = '';
+    title.innerHTML =`${userSearch.toUpperCase()}`;
+    title.style.fontSize = '35px';
+}
+
+
 // renderizado del botono "VER MAS" una vez que se preciona "ENTER" para buscar
+
 function renderButtonVerMas(){
     const renderButtonMas = document.querySelector('#div-button')
     let buttonVerMas = document.createElement('button')
@@ -89,7 +141,7 @@ function renderButtonVerMas(){
     buttonVerMas.addEventListener('click',  render12GIfMas)
 }
 
-// funcion que permite ver 12 gif mas
+// ----------- ------------- FUNCION QUE PERMITE VER 12 GIFS MAS ----------- -------------
     let offset = 0;
     async function render12GIfMas(){
     offset+=12
@@ -145,13 +197,14 @@ const flechaIzquierda = document.getElementById('flecha-izquierda')
 const flechaDerecha = document.getElementById('flecha-derecha')
 
 let sliderWidth = contenedorSlider.offsetWidth
+let sliderWidthInit = sliderWidth - 1071;
 // console.log(sliderWidth)
 flechaDerecha.addEventListener('click', () =>{
-    contenedorSlider.scrollLeft = sliderWidth += 357;
+    contenedorSlider.scrollLeft = sliderWidthInit += 357;
 }
 )
 
 flechaIzquierda.addEventListener('click', () =>{
-    contenedorSlider.scrollLeft = sliderWidth -= 357;
+    contenedorSlider.scrollLeft = sliderWidthInit -= 357;
 }
 )

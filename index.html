@@ -30,19 +30,24 @@
         <h2 class="title-section-serch">Inspírate, busca, guarda, y crea <br>los mejores <span class="span-title-section">GIFOS</span></h2>
         <div class="div-section-serch">
             <img class="section-serch-img" src="img/ilustra_header.svg" alt="imagen animada">
-            <form id="form" action="">
-                <input id="input-search" type="search" class="input-search" placeholder="Busca GIFOS y más" autocomplete="off">
-            </form>
-            <div class="suggestions"></div>
-            <div>auto</div>
-            <div>auto</div>
-            <div>auto</div>
+            <div class="cuadro-de-busqueda" id="cuadro-de-busqueda">
+                <form id="form" action="">
+                    <input id="input-search" type="search" class="input-search" placeholder="Busca GIFOS y más" autocomplete="off" onfocus="this.value=''">
+                </form>
+                <div class="suggestions" id="suggestions">
+                    <!-- <div class="suggestion">auto</div>
+                    <div class="suggestion">auto</div>
+                    <div class="suggestion">auto</div>
+                    <div class="suggestion">auto</div>
+                    <div class="suggestion">auto</div> -->
+                </div>
+            </div>
         </div>
     </section>
 
     <main class="main">
-        <h3 class="main-title">Trending:</h3>
-        <p class="main-p">Reactions, Entertainment, Sports, Stickers, Artists</p>
+        <h3 class="main-title" id="main-title">Trending:</h3>
+        <p class="main-p" id="main-p">Reactions, Entertainment, Sports, Stickers, Artists</p>
         <div class="render-gifs" id="render-gifs">
             <!-- <div class="main-render-img"></div>
             <div class="main-render-img"></div>

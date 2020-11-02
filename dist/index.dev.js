@@ -24,31 +24,64 @@ function toggleRender() {
 
 
 var letrasAutocompletado = document.getElementById('input-search');
-letrasAutocompletado.addEventListener('submit', autocompletado);
+letrasAutocompletado.addEventListener('keyup', autocompletado); // letrasAutocompletado.addEventListener('key', function(){
+//     console.log(letrasAutocompletado.value)
+// })
 
 function autocompletado() {
-  var res, resJson, datos;
+  var letras, res, resJason, suggestions, cuadroBusqueda, divConteiner;
   return regeneratorRuntime.async(function autocompletado$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          _context.next = 2;
-          return regeneratorRuntime.awrap(fetch("api.giphy.com/v1/gifs/search/tags?api_key=".concat(_api_key.API_KEY, "&q=").concat(letrasAutocompletado.value)));
+          letras = letrasAutocompletado.value;
+          _context.next = 3;
+          return regeneratorRuntime.awrap(fetch("https://api.giphy.com/v1/gifs/search/tags?api_key=".concat(_api_key.API_KEY, "&q=").concat(letras)));
 
-        case 2:
+        case 3:
           res = _context.sent;
-          resJson = res.json();
-          console.log(resJson);
-          datos = resJson.data;
-          console.log(datos);
+          _context.next = 6;
+          return regeneratorRuntime.awrap(res.json());
 
-        case 7:
+        case 6:
+          resJason = _context.sent;
+          suggestions = resJason.data;
+          cuadroBusqueda = document.getElementById('cuadro-de-busqueda');
+          divConteiner = document.getElementById('suggestions');
+          divConteiner.innerHTML = '';
+          suggestions.forEach(function (word) {
+            var divsSuggestion = document.createElement('div');
+            var suggestion = document.createTextNode("".concat(word.name));
+            divsSuggestion.appendChild(suggestion);
+            divsSuggestion.setAttribute('class', 'suggestion');
+            divConteiner.appendChild(divsSuggestion);
+            divConteiner.setAttribute('class', 'suggestions');
+            cuadroBusqueda.appendChild(divConteiner);
+            divsSuggestion.addEventListener('click', renderGifs);
+            divsSuggestion.addEventListener('click', delateSuggestios);
+            divsSuggestion.addEventListener('click', function () {
+              // console.log(word.name)
+              var title = document.getElementById('main-title');
+              var p = document.getElementById('main-p');
+              p.innerHTML = '';
+              title.innerHTML = "".concat(userSearch.toUpperCase(word.name));
+              title.style.fontSize = '35px';
+            });
+          });
+
+        case 12:
         case "end":
           return _context.stop();
       }
     }
   });
-} // ----------- ----------- RENDERIZADO DE GIFS SEARCH ----------- ------------- 
+} // ----------- ----------- elimina las sugerencias del buscador  ----------- ------------- 
+
+
+function delateSuggestios() {
+  var divConteiner = document.getElementById('suggestions');
+  divConteiner.innerHTML = '';
+} // ----------- ----------- RENDERIZADO DE GIFS - SEARCH ----------- ------------- 
 
 
 var inputSearch = document.getElementById('form');
@@ -58,7 +91,7 @@ inputSearch.addEventListener('submit', function (event) {
 inputSearch.addEventListener('submit', renderGifs); // inputSearch.addEventListener('submit', renderButtonVerMas)
 
 function renderGifs() {
-  var userSearch, response, gifsResponse, gifs;
+  var userSearch, response, gifsResponse, gifs, renderGifs;
   return regeneratorRuntime.async(function renderGifs$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
@@ -79,9 +112,10 @@ function renderGifs() {
           // let gif = gifs.data[0].images.original.url
           // console.log(gif)
 
+          renderGifs = document.getElementById('render-gifs');
+          renderGifs.innerHTML = '';
           gifs.forEach(function (element) {
             // console.log(gif.images.original.url)
-            var renderGifs = document.getElementById('render-gifs');
             var url = element.images.original.url;
             var img = document.createElement('img');
             var divContenerImg = document.createElement('div');
@@ -89,15 +123,25 @@ function renderGifs() {
             img.setAttribute('class', 'main-render-img');
             divContenerImg.appendChild(img);
             renderGifs.appendChild(divContenerImg);
+            renderNameSearch(userSearch);
           });
+          delateSuggestios();
           renderButtonVerMas();
 
-        case 10:
+        case 13:
         case "end":
           return _context2.stop();
       }
     }
   });
+}
+
+function renderNameSearch(userSearch) {
+  var title = document.getElementById('main-title');
+  var p = document.getElementById('main-p');
+  p.innerHTML = '';
+  title.innerHTML = "".concat(userSearch.toUpperCase());
+  title.style.fontSize = '35px';
 } // renderizado del botono "VER MAS" una vez que se preciona "ENTER" para buscar
 
 
@@ -110,7 +154,7 @@ function renderButtonVerMas() {
 
   renderButtonMas.appendChild(buttonVerMas);
   buttonVerMas.addEventListener('click', render12GIfMas);
-} // funcion que permite ver 12 gif mas
+} // ----------- ------------- FUNCION QUE PERMITE VER 12 GIFS MAS ----------- -------------
 
 
 var offset = 0;
@@ -203,11 +247,12 @@ renderTrends(); // ----------- ----------- SLIDER DE GIFS TRENDINGS ----------- 
 var contenedorSlider = document.getElementById('container-trends');
 var flechaIzquierda = document.getElementById('flecha-izquierda');
 var flechaDerecha = document.getElementById('flecha-derecha');
-var sliderWidth = contenedorSlider.offsetWidth; // console.log(sliderWidth)
+var sliderWidth = contenedorSlider.offsetWidth;
+var sliderWidthInit = sliderWidth - 1071; // console.log(sliderWidth)
 
 flechaDerecha.addEventListener('click', function () {
-  contenedorSlider.scrollLeft = sliderWidth += 357;
+  contenedorSlider.scrollLeft = sliderWidthInit += 357;
 });
 flechaIzquierda.addEventListener('click', function () {
-  contenedorSlider.scrollLeft = sliderWidth -= 357;
+  contenedorSlider.scrollLeft = sliderWidthInit -= 357;
 });
