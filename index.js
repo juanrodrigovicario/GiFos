@@ -1,6 +1,6 @@
 import {API_KEY} from "./api_key.js"
 
-
+// ----------- ----------- CAMBIO DE NOCTURNO A DIURNO ----------- ------------- 
 // ----------- ----------- CAMBIO DE NOCTURNO A DIURNO ----------- ------------- 
 
 let bottoModoNocturno = document.getElementById('bottom-modo-nocturno');
@@ -25,7 +25,7 @@ function toggleRender(){
     
 }
 
-
+// ----------- ----------- AUTOCOMPLETADO DE BUSQUEDA ----------- ------------- 
 // ----------- ----------- AUTOCOMPLETADO DE BUSQUEDA ----------- ------------- 
 
 const letrasAutocompletado = document.getElementById('input-search')
@@ -68,15 +68,15 @@ async function autocompletado(){
 
 }
 
-// ----------- ----------- elimina las sugerencias del buscador  ----------- ------------- 
+// ----------- ----------- ELIMINA AUTOSUGERENCIA DEL BUSCADOR  ----------- ------------- 
+// ----------- ----------- ELIMINA AUTOSUGERENCIA DEL BUSCADOR  ----------- ------------- 
 
 function delateSuggestios(){
     const divConteiner = document.getElementById('suggestions')
     divConteiner.innerHTML = '';
 }
 
-
-
+// ----------- ----------- RENDERIZADO DE GIFS - SEARCH ----------- ------------- 
 // ----------- ----------- RENDERIZADO DE GIFS - SEARCH ----------- ------------- 
 
 const inputSearch = document.getElementById('form');
@@ -112,6 +112,7 @@ async function renderGifs(){
         divContenerImg.appendChild(img)
         renderGifs.appendChild(divContenerImg)
 
+        divContenerImg.addEventListener('mouseover', showFeatures)
     })
     renderNameSearch(userSearch)
     delateSuggestios()
@@ -120,6 +121,12 @@ async function renderGifs(){
     renderButtonVerMas()
 }
 
+// ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
+// ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
+
+
+// ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
+// ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
 
 function renderNameSearch(userSearch){
     const title = document.getElementById('main-title')
@@ -129,8 +136,8 @@ function renderNameSearch(userSearch){
     title.style.fontSize = '35px';
 }
 
-
-// renderizado del botono "VER MAS" una vez que se preciona "ENTER" para buscar
+// ------ RENDERIZA BOTON "VER MAS" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
+// ------ RENDERIZA BOTON "VER MAS" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
 
 function renderButtonVerMas(){
     const renderButtonMas = document.querySelector('#div-button')
@@ -146,7 +153,9 @@ function renderButtonVerMas(){
 }
 
 // ----------- ------------- FUNCION QUE PERMITE VER 12 GIFS MAS ----------- -------------
-    let offset = 0;
+// ----------- ------------- FUNCION QUE PERMITE VER 12 GIFS MAS ----------- -------------
+
+let offset = 0;
     async function render12GIfMas(){
     offset+=12
     let userSearch = document.getElementById('input-search').value
@@ -169,6 +178,7 @@ function renderButtonVerMas(){
 
 }
 
+// ----------- ----------- RENDERIZADO DE GIFS TRENDINGS ----------- ------------- 
 // ----------- ----------- RENDERIZADO DE GIFS TRENDINGS ----------- ------------- 
 
 async function renderTrends(){
@@ -194,6 +204,7 @@ async function renderTrends(){
 }
 renderTrends()
 
+// ----------- ----------- SLIDER DE GIFS TRENDINGS ----------- ------------- 
 // ----------- ----------- SLIDER DE GIFS TRENDINGS ----------- ------------- 
 
 const contenedorSlider = document.getElementById('container-trends')

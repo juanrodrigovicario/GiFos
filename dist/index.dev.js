@@ -21,6 +21,7 @@ function toggleRender() {
   document.getElementById('input-search').classList.toggle('dark');
   document.getElementById('trending-section').classList.toggle('trending-dark');
 } // ----------- ----------- AUTOCOMPLETADO DE BUSQUEDA ----------- ------------- 
+// ----------- ----------- AUTOCOMPLETADO DE BUSQUEDA ----------- ------------- 
 
 
 var letrasAutocompletado = document.getElementById('input-search');
@@ -75,13 +76,15 @@ function autocompletado() {
       }
     }
   });
-} // ----------- ----------- elimina las sugerencias del buscador  ----------- ------------- 
+} // ----------- ----------- ELIMINA AUTOSUGERENCIA DEL BUSCADOR  ----------- ------------- 
+// ----------- ----------- ELIMINA AUTOSUGERENCIA DEL BUSCADOR  ----------- ------------- 
 
 
 function delateSuggestios() {
   var divConteiner = document.getElementById('suggestions');
   divConteiner.innerHTML = '';
 } // ----------- ----------- RENDERIZADO DE GIFS - SEARCH ----------- ------------- 
+// ----------- ----------- RENDERIZADO DE GIFS - SEARCH ----------- ------------- 
 
 
 var inputSearch = document.getElementById('form');
@@ -125,6 +128,7 @@ function renderGifs() {
             img.setAttribute('class', 'main-render-img');
             divContenerImg.appendChild(img);
             renderGifs.appendChild(divContenerImg);
+            divContenerImg.addEventListener('mouseover', showFeatures);
           });
           renderNameSearch(userSearch);
           delateSuggestios();
@@ -138,7 +142,11 @@ function renderGifs() {
       }
     }
   });
-}
+} // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
+// ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
+// ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
+// ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
+
 
 function renderNameSearch(userSearch) {
   var title = document.getElementById('main-title');
@@ -146,7 +154,8 @@ function renderNameSearch(userSearch) {
   p.innerHTML = '';
   title.innerHTML = "".concat(userSearch.toUpperCase());
   title.style.fontSize = '35px';
-} // renderizado del botono "VER MAS" una vez que se preciona "ENTER" para buscar
+} // ------ RENDERIZA BOTON "VER MAS" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
+// ------ RENDERIZA BOTON "VER MAS" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
 
 
 function renderButtonVerMas() {
@@ -159,6 +168,7 @@ function renderButtonVerMas() {
   renderButtonMas.appendChild(buttonVerMas);
   buttonVerMas.addEventListener('click', render12GIfMas);
 } // ----------- ------------- FUNCION QUE PERMITE VER 12 GIFS MAS ----------- -------------
+// ----------- ------------- FUNCION QUE PERMITE VER 12 GIFS MAS ----------- -------------
 
 
 var offset = 0;
@@ -202,6 +212,7 @@ function render12GIfMas() {
     }
   });
 } // ----------- ----------- RENDERIZADO DE GIFS TRENDINGS ----------- ------------- 
+// ----------- ----------- RENDERIZADO DE GIFS TRENDINGS ----------- ------------- 
 
 
 function renderTrends() {
@@ -247,6 +258,7 @@ function renderTrends() {
 }
 
 renderTrends(); // ----------- ----------- SLIDER DE GIFS TRENDINGS ----------- ------------- 
+// ----------- ----------- SLIDER DE GIFS TRENDINGS ----------- ------------- 
 
 var contenedorSlider = document.getElementById('container-trends');
 var flechaIzquierda = document.getElementById('flecha-izquierda');
