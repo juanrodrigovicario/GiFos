@@ -142,9 +142,16 @@ $color-hover: #9CAFC3;
             width: 260px;
             height: 200px;
             background-color: rgb(243, 243, 243);
+            position: relative;
+            .img{
+                width: 260px;
+                height: 200px;
+            }
             .comand-gif{
                 display: flex;
                 justify-content: flex-end;
+                // position: absolute;
+                transform: translateY(-200px);
                 .liked-gif{
                     width: 32px;
                     height: 32px;
@@ -184,6 +191,7 @@ $color-hover: #9CAFC3;
                 flex-direction: column;
                 text-align: left;
                 margin-top: 85px;
+                transform: translateY(-200px);
                 .user-gif{
                     margin: 4px 12px;
                 }

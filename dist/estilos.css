@@ -129,10 +129,16 @@
   width: 260px;
   height: 200px;
   background-color: #f3f3f3;
+  position: relative;
+}
+.main .render-gifs .main-render-img .img {
+  width: 260px;
+  height: 200px;
 }
 .main .render-gifs .main-render-img .comand-gif {
   display: flex;
   justify-content: flex-end;
+  transform: translateY(-200px);
 }
 .main .render-gifs .main-render-img .comand-gif .liked-gif {
   width: 32px;
@@ -172,6 +178,7 @@
   flex-direction: column;
   text-align: left;
   margin-top: 85px;
+  transform: translateY(-200px);
 }
 .main .render-gifs .main-render-img .info-gif .user-gif {
   margin: 4px 12px;

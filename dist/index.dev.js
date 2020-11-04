@@ -121,13 +121,47 @@ function renderGifs() {
           renderGifs.innerHTML = '';
           gifs.forEach(function (element) {
             // console.log(gif.images.original.url)
+            // const url = element.images.original.url
+            // const img = document.createElement('img')
+            // const divContenerImg = document.createElement('div')
+            // img.setAttribute('src', `${url}`)
+            // img.setAttribute('class', 'main-render-img')
+            // divContenerImg.appendChild(img)
+            // renderGifs.appendChild(divContenerImg)
             var url = element.images.original.url;
+            var divConteiner = document.createElement('div');
             var img = document.createElement('img');
-            var divContenerImg = document.createElement('div');
+            var divComand = document.createElement('div');
+            var divLikedGif = document.createElement('div');
+            var downloadGif = document.createElement('div');
+            var expandGif = document.createElement('div');
+            var divInfoGif = document.createElement('div');
+            var divUserGif = document.createElement('div');
+            var divTitleGif = document.createElement('div');
+            var textUserGif = document.createTextNode('user');
+            var textTitleGif = document.createTextNode('title');
+            divConteiner.setAttribute('class', 'main-render-img');
             img.setAttribute('src', "".concat(url));
-            img.setAttribute('class', 'main-render-img');
-            divContenerImg.appendChild(img);
-            renderGifs.appendChild(divContenerImg); // const divInfo = document.createElement('div')
+            img.setAttribute('class', 'img');
+            img.setAttribute('alt', 'esperando cargar GIF');
+            divComand.setAttribute('class', 'comand-gif');
+            divLikedGif.setAttribute('class', 'liked-gif');
+            downloadGif.setAttribute('class', 'download-gif');
+            expandGif.setAttribute('class', 'expand-gif');
+            divInfoGif.setAttribute('class', 'info-gif');
+            divUserGif.setAttribute('class', 'user-gif');
+            divTitleGif.setAttribute('class', 'titulo-gif');
+            divUserGif.appendChild(textUserGif);
+            divTitleGif.appendChild(textTitleGif);
+            divInfoGif.appendChild(divTitleGif);
+            divInfoGif.appendChild(divUserGif);
+            divComand.appendChild(divLikedGif);
+            divComand.appendChild(downloadGif);
+            divComand.appendChild(expandGif);
+            divConteiner.appendChild(img);
+            divConteiner.appendChild(divComand);
+            divConteiner.appendChild(divInfoGif);
+            renderGifs.appendChild(divConteiner); // const divInfo = document.createElement('div')
             // const title = document.createElement('p')
             // const user = document.createElement('p')
             // const textTitle = document.createTextNode('titulo')
