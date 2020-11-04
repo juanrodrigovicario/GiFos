@@ -128,6 +128,57 @@
 .main .render-gifs .main-render-img {
   width: 260px;
   height: 200px;
+  background-color: #f3f3f3;
+}
+.main .render-gifs .main-render-img .comand-gif {
+  display: flex;
+  justify-content: flex-end;
+}
+.main .render-gifs .main-render-img .comand-gif .liked-gif {
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  background-image: url(../img/icon-fav.svg);
+}
+.main .render-gifs .main-render-img .comand-gif .liked-gif:hover {
+  background-image: url(../img/icon-fav-hover.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.main .render-gifs .main-render-img .comand-gif .download-gif {
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  background-image: url(../img/icon-download.svg);
+}
+.main .render-gifs .main-render-img .comand-gif .download-gif:hover {
+  background-image: url(../img/icon-download-hover.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.main .render-gifs .main-render-img .comand-gif .expand-gif {
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  background-image: url(../img/icon-max-normal.svg);
+}
+.main .render-gifs .main-render-img .comand-gif .expand-gif:hover {
+  background-image: url(../img/icon-max-hover.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.main .render-gifs .main-render-img .info-gif {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 85px;
+}
+.main .render-gifs .main-render-img .info-gif .user-gif {
+  margin: 4px 12px;
+}
+.main .render-gifs .main-render-img .info-gif .titulo-gif {
+  margin: 4px 12px;
+  font-weight: bold;
 }
 .main .div-button .button-ver-mas-class {
   margin: 40px auto 40px auto;

@@ -112,7 +112,40 @@ async function renderGifs(){
         divContenerImg.appendChild(img)
         renderGifs.appendChild(divContenerImg)
 
-        divContenerImg.addEventListener('mouseover', showFeatures)
+        // const divInfo = document.createElement('div')
+        // const title = document.createElement('p')
+        // const user = document.createElement('p')
+        // const textTitle = document.createTextNode('titulo')
+        // const textUser = document.createTextNode('user')
+
+        // user.appendChild(textUser)
+        // title.appendChild(textTitle)
+        // user.setAttribute('class', 'user-gif')
+        // title.setAttribute('class', 'titulo-gif')
+        // divInfo.appendChild(title)
+        // divInfo.appendChild(user)
+        // divInfo.setAttribute('class', 'info-gif')
+        // img.appendChild(divInfo)
+
+
+        // img.addEventListener('mouseover', function(){
+        //     // const div = document.getElementById('divContenerImg')
+        //     const divInfo = document.createElement('div')
+        //     const title = document.createElement('p')
+        //     const user = document.createElement('p')
+        //     const textTitle = document.createTextNode('titulo')
+        //     const textUser = document.createTextNode('user')
+
+        //     user.appendChild(textUser)
+        //     title.appendChild(textTitle)
+        //     user.setAttribute('class', 'user-gif')
+        //     title.setAttribute('class', 'titulo-gif')
+        //     divInfo.appendChild(title)
+        //     divInfo.appendChild(user)
+        //     divInfo.setAttribute('class', 'info-gif')
+        //     img.appendChild(divInfo)
+        //     console.log(textTitle)
+        // })
     })
     renderNameSearch(userSearch)
     delateSuggestios()
@@ -124,6 +157,15 @@ async function renderGifs(){
 // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
 // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
 
+// function showFeatures(){
+//     const divImg = document.querySelector('.main-render-img')
+//     const title = document.createElement('p')
+//     const titleText = document.createTextNode('hola')
+
+//     title.appendChild(titleText)
+//     divImg.appendChild(title)
+
+// }
 
 // ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
 // ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------

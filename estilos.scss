@@ -141,12 +141,61 @@ $color-hover: #9CAFC3;
         .main-render-img{
             width: 260px;
             height: 200px;
+            background-color: rgb(243, 243, 243);
+            .comand-gif{
+                display: flex;
+                justify-content: flex-end;
+                .liked-gif{
+                    width: 32px;
+                    height: 32px;
+                    margin: 4px;
+                    background-image: url(../img/icon-fav.svg);
+                }
+                .liked-gif:hover{
+                    background-image: url(../img/icon-fav-hover.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                .download-gif{
+                    width: 32px;
+                    height: 32px;
+                    margin: 4px;
+                    background-image: url(../img/icon-download.svg);
+                }
+                .download-gif:hover{
+                    background-image: url(../img/icon-download-hover.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                .expand-gif{
+                    width: 32px;
+                    height: 32px;
+                    margin: 4px;
+                    background-image: url(../img/icon-max-normal.svg);
+                }
+                .expand-gif:hover{
+                    background-image: url(../img/icon-max-hover.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+            .info-gif{
+                display: flex;
+                flex-direction: column;
+                text-align: left;
+                margin-top: 85px;
+                .user-gif{
+                    margin: 4px 12px;
+                }
+                .titulo-gif{
+                    margin: 4px 12px;
+                    font-weight: bold;
+                }
+            }
         }
-        // .main-render-img:hover{
-        //     background-color: $color-violet;
-        //     opacity: 0.6;
-        //     z-index: 99;
-        // }
+        .main-render-img:hover{
+            // opacity: 0.2;
+        }
     }
 
     .div-button{
