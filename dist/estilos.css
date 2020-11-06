@@ -134,11 +134,24 @@
 .main .render-gifs .main-render-img .img {
   width: 260px;
   height: 200px;
+  z-index: 0;
+  position: relative;
+}
+.main .render-gifs .main-render-img .violet {
+  width: 260px;
+  height: 200px;
+  background-color: #572EE5;
+  transform: translateY(-204px);
+  opacity: 0.6;
+  z-index: 1;
+  position: absolute;
 }
 .main .render-gifs .main-render-img .comand-gif {
   display: flex;
   justify-content: flex-end;
   transform: translateY(-200px);
+  position: relative;
+  z-index: 2;
 }
 .main .render-gifs .main-render-img .comand-gif .liked-gif {
   width: 32px;
@@ -179,6 +192,8 @@
   text-align: left;
   margin-top: 85px;
   transform: translateY(-200px);
+  z-index: 2;
+  position: relative;
 }
 .main .render-gifs .main-render-img .info-gif .user-gif {
   margin: 4px 12px;

@@ -116,6 +116,7 @@ async function renderGifs(){
 
         const divConteiner = document.createElement('div')
         const img = document.createElement('img')
+        const divViolet = document.createElement('div')
         const divComand = document.createElement('div')
         const divLikedGif = document.createElement('div')
         const downloadGif = document.createElement('div')
@@ -130,6 +131,7 @@ async function renderGifs(){
         img.setAttribute('src', `${url}`)
         img.setAttribute('class', 'img')
         img.setAttribute('alt', 'esperando cargar GIF')
+        divViolet.setAttribute('class', 'violet')
         divComand.setAttribute('class', 'comand-gif')
         divLikedGif.setAttribute('class', 'liked-gif')
         downloadGif.setAttribute('class', 'download-gif')
@@ -147,47 +149,17 @@ async function renderGifs(){
         divComand.appendChild(expandGif)
 
         divConteiner.appendChild(img)
+        divConteiner.appendChild(divViolet)
         divConteiner.appendChild(divComand)
         divConteiner.appendChild(divInfoGif)
 
         renderGifs.appendChild(divConteiner)
 
+        divConteiner.addEventListener('mouseover', function(){
+            console.log('over')
+        })
+
         
-        
-        // const divInfo = document.createElement('div')
-        // const title = document.createElement('p')
-        // const user = document.createElement('p')
-        // const textTitle = document.createTextNode('titulo')
-        // const textUser = document.createTextNode('user')
-
-        // user.appendChild(textUser)
-        // title.appendChild(textTitle)
-        // user.setAttribute('class', 'user-gif')
-        // title.setAttribute('class', 'titulo-gif')
-        // divInfo.appendChild(title)
-        // divInfo.appendChild(user)
-        // divInfo.setAttribute('class', 'info-gif')
-        // img.appendChild(divInfo)
-
-
-        // img.addEventListener('mouseover', function(){
-        //     // const div = document.getElementById('divContenerImg')
-        //     const divInfo = document.createElement('div')
-        //     const title = document.createElement('p')
-        //     const user = document.createElement('p')
-        //     const textTitle = document.createTextNode('titulo')
-        //     const textUser = document.createTextNode('user')
-
-        //     user.appendChild(textUser)
-        //     title.appendChild(textTitle)
-        //     user.setAttribute('class', 'user-gif')
-        //     title.setAttribute('class', 'titulo-gif')
-        //     divInfo.appendChild(title)
-        //     divInfo.appendChild(user)
-        //     divInfo.setAttribute('class', 'info-gif')
-        //     img.appendChild(divInfo)
-        //     console.log(textTitle)
-        // })
     })
     renderNameSearch(userSearch)
     delateSuggestios()
