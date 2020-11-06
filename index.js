@@ -118,6 +118,7 @@ async function renderGifs(){
         // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
         // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
 
+        
         img.addEventListener('mouseover', showComands)
         img.removeEventListener('mouseout', showComands)
         function showComands(){
@@ -154,7 +155,6 @@ async function renderGifs(){
             divConteiner.appendChild(divComand)
             divConteiner.appendChild(divInfoGif)
         }
-        
     })
 
     renderNameSearch(userSearch)
