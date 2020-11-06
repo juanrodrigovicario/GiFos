@@ -157,9 +157,10 @@ $color-hover: #9CAFC3;
                 opacity: 0.6;
                 z-index: 1;
                 position: absolute;
+                display: none;
             }
             .comand-gif{
-                display: flex;
+                display: none;
                 justify-content: flex-end;
                 // position: absolute;
                 transform: translateY(-200px);
@@ -200,7 +201,7 @@ $color-hover: #9CAFC3;
                 }
             }
             .info-gif{
-                display: flex;
+                display: none;
                 flex-direction: column;
                 text-align: left;
                 margin-top: 85px;
@@ -214,6 +215,14 @@ $color-hover: #9CAFC3;
                     margin: 4px 12px;
                     font-weight: bold;
                 }
+            }
+            .img:hover +.violet
+            {
+                display: block;
+            }
+            .img:hover ~.comand-gif,
+            .img:hover ~.info-gif{
+                display: flex;
             }
         }
         

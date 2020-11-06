@@ -132,7 +132,7 @@ function renderGifs() {
             // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
 
             img.addEventListener('mouseover', showComands);
-            img.removeEventListener('mouseout', showComands);
+            img.addEventListener('mouseout', hideComands);
 
             function showComands() {
               var divViolet = document.createElement('div');
@@ -163,6 +163,11 @@ function renderGifs() {
               divConteiner.appendChild(divViolet);
               divConteiner.appendChild(divComand);
               divConteiner.appendChild(divInfoGif);
+            }
+
+            function hideComands() {
+              var divViolet = document.querySelector('.violet');
+              divViolet.style.display = "none";
             }
           });
           renderNameSearch(userSearch);
@@ -228,14 +233,57 @@ function render12GIfMas() {
           responseData = jsonResponse.data; // console.log(responseData)
 
           responseData.forEach(function (element) {
-            var getId = document.getElementById('render-gifs');
+            // const getId = document.getElementById('render-gifs')
+            // const url = element.images.original.url
+            // const img = document.createElement('img')
+            // const divContenerImg = document.createElement('div')
+            // img.setAttribute('src',`${url}`)
+            // img.setAttribute('class', 'main-render-img')
+            // divContenerImg.appendChild(img)
+            // getId.appendChild(divContenerImg)
+            var renderGifs = document.getElementById('render-gifs');
             var url = element.images.original.url;
+            var divConteiner = document.createElement('div');
             var img = document.createElement('img');
-            var divContenerImg = document.createElement('div');
+            divConteiner.setAttribute('class', 'main-render-img');
             img.setAttribute('src', "".concat(url));
-            img.setAttribute('class', 'main-render-img');
-            divContenerImg.appendChild(img);
-            getId.appendChild(divContenerImg);
+            img.setAttribute('class', 'img');
+            img.setAttribute('alt', 'esperando cargar GIF');
+            divConteiner.appendChild(img);
+            renderGifs.appendChild(divConteiner);
+            img.addEventListener('mouseover', showComands);
+            img.removeEventListener('mouseout', showComands);
+
+            function showComands() {
+              var divViolet = document.createElement('div');
+              var divComand = document.createElement('div');
+              var divLikedGif = document.createElement('div');
+              var downloadGif = document.createElement('div');
+              var expandGif = document.createElement('div');
+              var divInfoGif = document.createElement('div');
+              var divUserGif = document.createElement('div');
+              var divTitleGif = document.createElement('div');
+              var textUserGif = document.createTextNode('user');
+              var textTitleGif = document.createTextNode('title');
+              divViolet.setAttribute('class', 'violet');
+              divComand.setAttribute('class', 'comand-gif');
+              divLikedGif.setAttribute('class', 'liked-gif');
+              downloadGif.setAttribute('class', 'download-gif');
+              expandGif.setAttribute('class', 'expand-gif');
+              divInfoGif.setAttribute('class', 'info-gif');
+              divUserGif.setAttribute('class', 'user-gif');
+              divTitleGif.setAttribute('class', 'titulo-gif');
+              divUserGif.appendChild(textUserGif);
+              divTitleGif.appendChild(textTitleGif);
+              divInfoGif.appendChild(divTitleGif);
+              divInfoGif.appendChild(divUserGif);
+              divComand.appendChild(divLikedGif);
+              divComand.appendChild(downloadGif);
+              divComand.appendChild(expandGif);
+              divConteiner.appendChild(divViolet);
+              divConteiner.appendChild(divComand);
+              divConteiner.appendChild(divInfoGif);
+            }
           });
 
         case 10:

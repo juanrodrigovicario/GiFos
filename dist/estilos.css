@@ -145,9 +145,10 @@
   opacity: 0.6;
   z-index: 1;
   position: absolute;
+  display: none;
 }
 .main .render-gifs .main-render-img .comand-gif {
-  display: flex;
+  display: none;
   justify-content: flex-end;
   transform: translateY(-200px);
   position: relative;
@@ -187,7 +188,7 @@
   background-position: center;
 }
 .main .render-gifs .main-render-img .info-gif {
-  display: flex;
+  display: none;
   flex-direction: column;
   text-align: left;
   margin-top: 85px;
@@ -201,6 +202,13 @@
 .main .render-gifs .main-render-img .info-gif .titulo-gif {
   margin: 4px 12px;
   font-weight: bold;
+}
+.main .render-gifs .main-render-img .img:hover + .violet {
+  display: block;
+}
+.main .render-gifs .main-render-img .img:hover ~ .comand-gif,
+.main .render-gifs .main-render-img .img:hover ~ .info-gif {
+  display: flex;
 }
 .main .div-button .button-ver-mas-class {
   margin: 40px auto 40px auto;
