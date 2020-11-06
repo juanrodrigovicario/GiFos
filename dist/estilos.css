@@ -152,7 +152,7 @@
   justify-content: flex-end;
   transform: translateY(-200px);
   position: relative;
-  z-index: 2;
+  z-index: 20;
 }
 .main .render-gifs .main-render-img .comand-gif .liked-gif {
   width: 32px;
@@ -193,7 +193,7 @@
   text-align: left;
   margin-top: 85px;
   transform: translateY(-200px);
-  z-index: 2;
+  z-index: 20;
   position: relative;
 }
 .main .render-gifs .main-render-img .info-gif .user-gif {
@@ -203,11 +203,10 @@
   margin: 4px 12px;
   font-weight: bold;
 }
-.main .render-gifs .main-render-img .img:hover + .violet {
+.main .render-gifs .main-render-img:hover .violet {
   display: block;
 }
-.main .render-gifs .main-render-img .img:hover ~ .comand-gif,
-.main .render-gifs .main-render-img .img:hover ~ .info-gif {
+.main .render-gifs .main-render-img:hover .comand-gif, .main .render-gifs .main-render-img:hover .info-gif {
   display: flex;
 }
 .main .div-button .button-ver-mas-class {

@@ -165,7 +165,7 @@ $color-hover: #9CAFC3;
                 // position: absolute;
                 transform: translateY(-200px);
                 position: relative;
-                z-index: 2;
+                z-index: 20;
                 .liked-gif{
                     width: 32px;
                     height: 32px;
@@ -206,7 +206,7 @@ $color-hover: #9CAFC3;
                 text-align: left;
                 margin-top: 85px;
                 transform: translateY(-200px);
-                z-index: 2;
+                z-index: 20;
                 position: relative;
                 .user-gif{
                     margin: 4px 12px;
@@ -216,14 +216,17 @@ $color-hover: #9CAFC3;
                     font-weight: bold;
                 }
             }
-            .img:hover +.violet
-            {
-                display: block;
-            }
-            .img:hover ~.comand-gif,
-            .img:hover ~.info-gif{
-                display: flex;
-            }
+        
+            // .img:hover ~.comand-gif,
+            // .img:hover ~.info-gif{
+            //     display: flex;
+            // }
+        }
+        .main-render-img:hover .violet{
+            display: block;
+        }
+        .main-render-img:hover .comand-gif, .main-render-img:hover .info-gif{
+            display: flex;
         }
         
     }

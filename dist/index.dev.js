@@ -130,45 +130,37 @@ function renderGifs() {
             divConteiner.appendChild(img);
             renderGifs.appendChild(divConteiner); // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
             // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
+            //     img.addEventListener('mouseover', showComands)
+            //     function showComands(){
 
-            img.addEventListener('mouseover', showComands);
-            img.addEventListener('mouseout', hideComands);
-
-            function showComands() {
-              var divViolet = document.createElement('div');
-              var divComand = document.createElement('div');
-              var divLikedGif = document.createElement('div');
-              var downloadGif = document.createElement('div');
-              var expandGif = document.createElement('div');
-              var divInfoGif = document.createElement('div');
-              var divUserGif = document.createElement('div');
-              var divTitleGif = document.createElement('div');
-              var textUserGif = document.createTextNode('user');
-              var textTitleGif = document.createTextNode('title');
-              divViolet.setAttribute('class', 'violet');
-              divComand.setAttribute('class', 'comand-gif');
-              divLikedGif.setAttribute('class', 'liked-gif');
-              downloadGif.setAttribute('class', 'download-gif');
-              expandGif.setAttribute('class', 'expand-gif');
-              divInfoGif.setAttribute('class', 'info-gif');
-              divUserGif.setAttribute('class', 'user-gif');
-              divTitleGif.setAttribute('class', 'titulo-gif');
-              divUserGif.appendChild(textUserGif);
-              divTitleGif.appendChild(textTitleGif);
-              divInfoGif.appendChild(divTitleGif);
-              divInfoGif.appendChild(divUserGif);
-              divComand.appendChild(divLikedGif);
-              divComand.appendChild(downloadGif);
-              divComand.appendChild(expandGif);
-              divConteiner.appendChild(divViolet);
-              divConteiner.appendChild(divComand);
-              divConteiner.appendChild(divInfoGif);
-            }
-
-            function hideComands() {
-              var divViolet = document.querySelector('.violet');
-              divViolet.style.display = "none";
-            }
+            var divViolet = document.createElement('div');
+            var divComand = document.createElement('div');
+            var divLikedGif = document.createElement('div');
+            var downloadGif = document.createElement('div');
+            var expandGif = document.createElement('div');
+            var divInfoGif = document.createElement('div');
+            var divUserGif = document.createElement('div');
+            var divTitleGif = document.createElement('div');
+            var textUserGif = document.createTextNode('user');
+            var textTitleGif = document.createTextNode('title');
+            divViolet.setAttribute('class', 'violet');
+            divComand.setAttribute('class', 'comand-gif');
+            divLikedGif.setAttribute('class', 'liked-gif');
+            downloadGif.setAttribute('class', 'download-gif');
+            expandGif.setAttribute('class', 'expand-gif');
+            divInfoGif.setAttribute('class', 'info-gif');
+            divUserGif.setAttribute('class', 'user-gif');
+            divTitleGif.setAttribute('class', 'titulo-gif');
+            divUserGif.appendChild(textUserGif);
+            divTitleGif.appendChild(textTitleGif);
+            divInfoGif.appendChild(divTitleGif);
+            divInfoGif.appendChild(divUserGif);
+            divComand.appendChild(divLikedGif);
+            divComand.appendChild(downloadGif);
+            divComand.appendChild(expandGif);
+            divConteiner.appendChild(divViolet);
+            divConteiner.appendChild(divComand);
+            divConteiner.appendChild(divInfoGif); //     }
           });
           renderNameSearch(userSearch);
           delateSuggestios();
@@ -250,40 +242,38 @@ function render12GIfMas() {
             img.setAttribute('class', 'img');
             img.setAttribute('alt', 'esperando cargar GIF');
             divConteiner.appendChild(img);
-            renderGifs.appendChild(divConteiner);
-            img.addEventListener('mouseover', showComands);
-            img.removeEventListener('mouseout', showComands);
+            renderGifs.appendChild(divConteiner); // img.addEventListener('mouseover', showComands)
+            // img.removeEventListener('mouseout', showComands)
+            // function showComands(){
 
-            function showComands() {
-              var divViolet = document.createElement('div');
-              var divComand = document.createElement('div');
-              var divLikedGif = document.createElement('div');
-              var downloadGif = document.createElement('div');
-              var expandGif = document.createElement('div');
-              var divInfoGif = document.createElement('div');
-              var divUserGif = document.createElement('div');
-              var divTitleGif = document.createElement('div');
-              var textUserGif = document.createTextNode('user');
-              var textTitleGif = document.createTextNode('title');
-              divViolet.setAttribute('class', 'violet');
-              divComand.setAttribute('class', 'comand-gif');
-              divLikedGif.setAttribute('class', 'liked-gif');
-              downloadGif.setAttribute('class', 'download-gif');
-              expandGif.setAttribute('class', 'expand-gif');
-              divInfoGif.setAttribute('class', 'info-gif');
-              divUserGif.setAttribute('class', 'user-gif');
-              divTitleGif.setAttribute('class', 'titulo-gif');
-              divUserGif.appendChild(textUserGif);
-              divTitleGif.appendChild(textTitleGif);
-              divInfoGif.appendChild(divTitleGif);
-              divInfoGif.appendChild(divUserGif);
-              divComand.appendChild(divLikedGif);
-              divComand.appendChild(downloadGif);
-              divComand.appendChild(expandGif);
-              divConteiner.appendChild(divViolet);
-              divConteiner.appendChild(divComand);
-              divConteiner.appendChild(divInfoGif);
-            }
+            var divViolet = document.createElement('div');
+            var divComand = document.createElement('div');
+            var divLikedGif = document.createElement('div');
+            var downloadGif = document.createElement('div');
+            var expandGif = document.createElement('div');
+            var divInfoGif = document.createElement('div');
+            var divUserGif = document.createElement('div');
+            var divTitleGif = document.createElement('div');
+            var textUserGif = document.createTextNode('user');
+            var textTitleGif = document.createTextNode('title');
+            divViolet.setAttribute('class', 'violet');
+            divComand.setAttribute('class', 'comand-gif');
+            divLikedGif.setAttribute('class', 'liked-gif');
+            downloadGif.setAttribute('class', 'download-gif');
+            expandGif.setAttribute('class', 'expand-gif');
+            divInfoGif.setAttribute('class', 'info-gif');
+            divUserGif.setAttribute('class', 'user-gif');
+            divTitleGif.setAttribute('class', 'titulo-gif');
+            divUserGif.appendChild(textUserGif);
+            divTitleGif.appendChild(textTitleGif);
+            divInfoGif.appendChild(divTitleGif);
+            divInfoGif.appendChild(divUserGif);
+            divComand.appendChild(divLikedGif);
+            divComand.appendChild(downloadGif);
+            divComand.appendChild(expandGif);
+            divConteiner.appendChild(divViolet);
+            divConteiner.appendChild(divComand);
+            divConteiner.appendChild(divInfoGif); //     }
           });
 
         case 10:

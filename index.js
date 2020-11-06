@@ -118,11 +118,9 @@ async function renderGifs(){
         // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
         // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
 
-        
-        img.addEventListener('mouseover', showComands)
-        img.addEventListener('mouseout', hideComands)
+    //     img.addEventListener('mouseover', showComands)
 
-        function showComands(){
+    //     function showComands(){
             const divViolet = document.createElement('div')
             const divComand = document.createElement('div')
             const divLikedGif = document.createElement('div')
@@ -154,12 +152,7 @@ async function renderGifs(){
             divConteiner.appendChild(divViolet)
             divConteiner.appendChild(divComand)
             divConteiner.appendChild(divInfoGif)
-        }
-
-        function hideComands(){
-            const divViolet = document.querySelector('.violet')
-            divViolet.style.display="none";
-        }
+    //     }
     })
 
     renderNameSearch(userSearch)
@@ -233,9 +226,9 @@ let offset = 0;
         divConteiner.appendChild(img)
         renderGifs.appendChild(divConteiner)
 
-        img.addEventListener('mouseover', showComands)
-        img.removeEventListener('mouseout', showComands)
-        function showComands(){
+        // img.addEventListener('mouseover', showComands)
+        // img.removeEventListener('mouseout', showComands)
+        // function showComands(){
 
             const divViolet = document.createElement('div')
             const divComand = document.createElement('div')
@@ -268,7 +261,7 @@ let offset = 0;
             divConteiner.appendChild(divViolet)
             divConteiner.appendChild(divComand)
             divConteiner.appendChild(divInfoGif)
-        }
+    //     }
     })
 
 }
