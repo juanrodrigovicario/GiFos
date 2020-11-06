@@ -130,44 +130,77 @@ function renderGifs() {
             // renderGifs.appendChild(divContenerImg)
             var url = element.images.original.url;
             var divConteiner = document.createElement('div');
-            var img = document.createElement('img');
-            var divViolet = document.createElement('div');
-            var divComand = document.createElement('div');
-            var divLikedGif = document.createElement('div');
-            var downloadGif = document.createElement('div');
-            var expandGif = document.createElement('div');
-            var divInfoGif = document.createElement('div');
-            var divUserGif = document.createElement('div');
-            var divTitleGif = document.createElement('div');
-            var textUserGif = document.createTextNode('user');
-            var textTitleGif = document.createTextNode('title');
+            var img = document.createElement('img'); // const divViolet = document.createElement('div')
+            // const divComand = document.createElement('div')
+            // const divLikedGif = document.createElement('div')
+            // const downloadGif = document.createElement('div')
+            // const expandGif = document.createElement('div')
+            // const divInfoGif = document.createElement('div')
+            // const divUserGif = document.createElement('div')
+            // const divTitleGif = document.createElement('div')
+            // const textUserGif = document.createTextNode('user')
+            // const textTitleGif = document.createTextNode('title')
+
             divConteiner.setAttribute('class', 'main-render-img');
             img.setAttribute('src', "".concat(url));
             img.setAttribute('class', 'img');
-            img.setAttribute('alt', 'esperando cargar GIF');
-            divViolet.setAttribute('class', 'violet');
-            divComand.setAttribute('class', 'comand-gif');
-            divLikedGif.setAttribute('class', 'liked-gif');
-            downloadGif.setAttribute('class', 'download-gif');
-            expandGif.setAttribute('class', 'expand-gif');
-            divInfoGif.setAttribute('class', 'info-gif');
-            divUserGif.setAttribute('class', 'user-gif');
-            divTitleGif.setAttribute('class', 'titulo-gif');
-            divUserGif.appendChild(textUserGif);
-            divTitleGif.appendChild(textTitleGif);
-            divInfoGif.appendChild(divTitleGif);
-            divInfoGif.appendChild(divUserGif);
-            divComand.appendChild(divLikedGif);
-            divComand.appendChild(downloadGif);
-            divComand.appendChild(expandGif);
-            divConteiner.appendChild(img);
-            divConteiner.appendChild(divViolet);
-            divConteiner.appendChild(divComand);
-            divConteiner.appendChild(divInfoGif);
-            renderGifs.appendChild(divConteiner);
-            divConteiner.addEventListener('mouseover', function () {
-              console.log('over');
-            });
+            img.setAttribute('alt', 'esperando cargar GIF'); // divViolet.setAttribute('class', 'violet')
+            // divComand.setAttribute('class', 'comand-gif')
+            // divLikedGif.setAttribute('class', 'liked-gif')
+            // downloadGif.setAttribute('class', 'download-gif')
+            // expandGif.setAttribute('class', 'expand-gif')
+            // divInfoGif.setAttribute('class', 'info-gif')
+            // divUserGif.setAttribute('class', 'user-gif')
+            // divTitleGif.setAttribute('class', 'titulo-gif')
+            // divUserGif.appendChild(textUserGif)
+            // divTitleGif.appendChild(textTitleGif)
+            // divInfoGif.appendChild(divTitleGif)
+            // divInfoGif.appendChild(divUserGif)
+            // divComand.appendChild(divLikedGif)
+            // divComand.appendChild(downloadGif)
+            // divComand.appendChild(expandGif)
+
+            divConteiner.appendChild(img); // divConteiner.appendChild(divViolet)
+            // divConteiner.appendChild(divComand)
+            // divConteiner.appendChild(divInfoGif)
+
+            renderGifs.appendChild(divConteiner); // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
+            // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
+
+            img.addEventListener('mouseenter', showComands);
+            img.removeEventListener('mouseout', showComands);
+
+            function showComands() {
+              // console.log('over')
+              var divViolet = document.createElement('div');
+              var divComand = document.createElement('div');
+              var divLikedGif = document.createElement('div');
+              var downloadGif = document.createElement('div');
+              var expandGif = document.createElement('div');
+              var divInfoGif = document.createElement('div');
+              var divUserGif = document.createElement('div');
+              var divTitleGif = document.createElement('div');
+              var textUserGif = document.createTextNode('user');
+              var textTitleGif = document.createTextNode('title');
+              divViolet.setAttribute('class', 'violet');
+              divComand.setAttribute('class', 'comand-gif');
+              divLikedGif.setAttribute('class', 'liked-gif');
+              downloadGif.setAttribute('class', 'download-gif');
+              expandGif.setAttribute('class', 'expand-gif');
+              divInfoGif.setAttribute('class', 'info-gif');
+              divUserGif.setAttribute('class', 'user-gif');
+              divTitleGif.setAttribute('class', 'titulo-gif');
+              divUserGif.appendChild(textUserGif);
+              divTitleGif.appendChild(textTitleGif);
+              divInfoGif.appendChild(divTitleGif);
+              divInfoGif.appendChild(divUserGif);
+              divComand.appendChild(divLikedGif);
+              divComand.appendChild(downloadGif);
+              divComand.appendChild(expandGif);
+              divConteiner.appendChild(divViolet);
+              divConteiner.appendChild(divComand);
+              divConteiner.appendChild(divInfoGif);
+            }
           });
           renderNameSearch(userSearch);
           delateSuggestios();
@@ -181,16 +214,7 @@ function renderGifs() {
       }
     }
   });
-} // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
-// ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
-// function showFeatures(){
-//     const divImg = document.querySelector('.main-render-img')
-//     const title = document.createElement('p')
-//     const titleText = document.createTextNode('hola')
-//     title.appendChild(titleText)
-//     divImg.appendChild(title)
-// }
-// ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
+} // ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
 // ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
 
 
