@@ -102,67 +102,26 @@ async function renderGifs(){
     renderGifs.innerHTML = '';
 
     gifs.forEach(function(element){
-        // console.log(gif.images.original.url)
-        // const url = element.images.original.url
-        // const img = document.createElement('img')
-        // const divContenerImg = document.createElement('div')
-
-        // img.setAttribute('src', `${url}`)
-        // img.setAttribute('class', 'main-render-img')
-        // divContenerImg.appendChild(img)
-        // renderGifs.appendChild(divContenerImg)
-
         const url = element.images.original.url
 
         const divConteiner = document.createElement('div')
         const img = document.createElement('img')
-        // const divViolet = document.createElement('div')
-        // const divComand = document.createElement('div')
-        // const divLikedGif = document.createElement('div')
-        // const downloadGif = document.createElement('div')
-        // const expandGif = document.createElement('div')
-        // const divInfoGif = document.createElement('div')
-        // const divUserGif = document.createElement('div')
-        // const divTitleGif = document.createElement('div')
-        // const textUserGif = document.createTextNode('user')
-        // const textTitleGif = document.createTextNode('title')
 
         divConteiner.setAttribute('class', 'main-render-img')
         img.setAttribute('src', `${url}`)
         img.setAttribute('class', 'img')
         img.setAttribute('alt', 'esperando cargar GIF')
-        // divViolet.setAttribute('class', 'violet')
-        // divComand.setAttribute('class', 'comand-gif')
-        // divLikedGif.setAttribute('class', 'liked-gif')
-        // downloadGif.setAttribute('class', 'download-gif')
-        // expandGif.setAttribute('class', 'expand-gif')
-        // divInfoGif.setAttribute('class', 'info-gif')
-        // divUserGif.setAttribute('class', 'user-gif')
-        // divTitleGif.setAttribute('class', 'titulo-gif')
-
-        // divUserGif.appendChild(textUserGif)
-        // divTitleGif.appendChild(textTitleGif)
-        // divInfoGif.appendChild(divTitleGif)
-        // divInfoGif.appendChild(divUserGif)
-        // divComand.appendChild(divLikedGif)
-        // divComand.appendChild(downloadGif)
-        // divComand.appendChild(expandGif)
 
         divConteiner.appendChild(img)
-        // divConteiner.appendChild(divViolet)
-        // divConteiner.appendChild(divComand)
-        // divConteiner.appendChild(divInfoGif)
-
         renderGifs.appendChild(divConteiner)
 
         // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
         // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
 
-        img.addEventListener('mouseenter', showComands)
+        img.addEventListener('mouseover', showComands)
         img.removeEventListener('mouseout', showComands)
-        
         function showComands(){
-            // console.log('over')
+
             const divViolet = document.createElement('div')
             const divComand = document.createElement('div')
             const divLikedGif = document.createElement('div')
@@ -195,7 +154,6 @@ async function renderGifs(){
             divConteiner.appendChild(divComand)
             divConteiner.appendChild(divInfoGif)
         }
-
         
     })
 
@@ -205,7 +163,6 @@ async function renderGifs(){
     renderButtonMas.innerHTML = '';
     renderButtonVerMas()
 }
-
 
 // ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
 // ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
