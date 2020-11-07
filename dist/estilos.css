@@ -195,6 +195,7 @@
   transform: translateY(-200px);
   z-index: 20;
   position: relative;
+  color: #fff;
 }
 .main .render-gifs .main-render-img .info-gif .user-gif {
   margin: 4px 12px;

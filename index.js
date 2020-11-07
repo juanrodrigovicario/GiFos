@@ -103,6 +103,9 @@ async function renderGifs(){
 
     gifs.forEach(function(element){
         const url = element.images.original.url
+        const gifTitle = element.title
+        const userName = element.username
+        const idGif = element.id
 
         const divConteiner = document.createElement('div')
         const img = document.createElement('img')
@@ -115,44 +118,43 @@ async function renderGifs(){
         divConteiner.appendChild(img)
         renderGifs.appendChild(divConteiner)
 
-        // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
-        // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
+        const divViolet = document.createElement('div')
+        const divComand = document.createElement('div')
+        const divLikedGif = document.createElement('div')
+        const downloadGif = document.createElement('div')
+        const expandGif = document.createElement('div')
+        const divInfoGif = document.createElement('div')
+        const divUserGif = document.createElement('div')
+        const divTitleGif = document.createElement('div')
+        const textUserGif = document.createTextNode(`${userName}`)
+        const textTitleGif = document.createTextNode(`${gifTitle}`)
+        
+        divViolet.setAttribute('class', 'violet')
+        divComand.setAttribute('class', 'comand-gif')
+        divLikedGif.setAttribute('class', 'liked-gif')
+        downloadGif.setAttribute('class', 'download-gif')
+        expandGif.setAttribute('class', 'expand-gif')
+        divInfoGif.setAttribute('class', 'info-gif')
+        divUserGif.setAttribute('class', 'user-gif')
+        divTitleGif.setAttribute('class', 'titulo-gif')
 
-    //     img.addEventListener('mouseover', showComands)
+        divUserGif.appendChild(textUserGif)
+        divTitleGif.appendChild(textTitleGif)
+        divInfoGif.appendChild(divTitleGif)
+        divInfoGif.appendChild(divUserGif)
+        divComand.appendChild(divLikedGif)
+        divComand.appendChild(downloadGif)
+        divComand.appendChild(expandGif)
 
-    //     function showComands(){
-            const divViolet = document.createElement('div')
-            const divComand = document.createElement('div')
-            const divLikedGif = document.createElement('div')
-            const downloadGif = document.createElement('div')
-            const expandGif = document.createElement('div')
-            const divInfoGif = document.createElement('div')
-            const divUserGif = document.createElement('div')
-            const divTitleGif = document.createElement('div')
-            const textUserGif = document.createTextNode('user')
-            const textTitleGif = document.createTextNode('title')
-            
-            divViolet.setAttribute('class', 'violet')
-            divComand.setAttribute('class', 'comand-gif')
-            divLikedGif.setAttribute('class', 'liked-gif')
-            downloadGif.setAttribute('class', 'download-gif')
-            expandGif.setAttribute('class', 'expand-gif')
-            divInfoGif.setAttribute('class', 'info-gif')
-            divUserGif.setAttribute('class', 'user-gif')
-            divTitleGif.setAttribute('class', 'titulo-gif')
+        divConteiner.appendChild(divViolet)
+        divConteiner.appendChild(divComand)
+        divConteiner.appendChild(divInfoGif)
 
-            divUserGif.appendChild(textUserGif)
-            divTitleGif.appendChild(textTitleGif)
-            divInfoGif.appendChild(divTitleGif)
-            divInfoGif.appendChild(divUserGif)
-            divComand.appendChild(divLikedGif)
-            divComand.appendChild(downloadGif)
-            divComand.appendChild(expandGif)
+        divLikedGif.addEventListener('click', function(){
+            console.log(url)
+            localStorage.setItem(`${idGif}`,`${url}`)
+        })
 
-            divConteiner.appendChild(divViolet)
-            divConteiner.appendChild(divComand)
-            divConteiner.appendChild(divInfoGif)
-    //     }
     })
 
     renderNameSearch(userSearch)
@@ -161,6 +163,15 @@ async function renderGifs(){
     renderButtonMas.innerHTML = '';
     renderButtonVerMas()
 }
+
+
+// ----------- ----------- CLICK PARA GUARDAR EN LOCAL STORAGE ----------- ------------- 
+// ----------- ----------- CLICK PARA GUARDAR EN LOCAL STORAGE ----------- ------------- 
+
+function saveLocalStorage(){
+    console.log(this.element)
+}
+
 
 // ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
 // ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
@@ -226,42 +237,39 @@ let offset = 0;
         divConteiner.appendChild(img)
         renderGifs.appendChild(divConteiner)
 
-        // img.addEventListener('mouseover', showComands)
-        // img.removeEventListener('mouseout', showComands)
-        // function showComands(){
+        const divViolet = document.createElement('div')
+        const divComand = document.createElement('div')
+        const divLikedGif = document.createElement('div')
+        const downloadGif = document.createElement('div')
+        const expandGif = document.createElement('div')
+        const divInfoGif = document.createElement('div')
+        const divUserGif = document.createElement('div')
+        const divTitleGif = document.createElement('div')
+        const textUserGif = document.createTextNode('`${}`')
+        const textTitleGif = document.createTextNode('`${}`')
+        
+        divViolet.setAttribute('class', 'violet')
+        divComand.setAttribute('class', 'comand-gif')
+        divLikedGif.setAttribute('class', 'liked-gif')
+        downloadGif.setAttribute('class', 'download-gif')
+        expandGif.setAttribute('class', 'expand-gif')
+        divInfoGif.setAttribute('class', 'info-gif')
+        divUserGif.setAttribute('class', 'user-gif')
+        divTitleGif.setAttribute('class', 'titulo-gif')
 
-            const divViolet = document.createElement('div')
-            const divComand = document.createElement('div')
-            const divLikedGif = document.createElement('div')
-            const downloadGif = document.createElement('div')
-            const expandGif = document.createElement('div')
-            const divInfoGif = document.createElement('div')
-            const divUserGif = document.createElement('div')
-            const divTitleGif = document.createElement('div')
-            const textUserGif = document.createTextNode('user')
-            const textTitleGif = document.createTextNode('title')
-            
-            divViolet.setAttribute('class', 'violet')
-            divComand.setAttribute('class', 'comand-gif')
-            divLikedGif.setAttribute('class', 'liked-gif')
-            downloadGif.setAttribute('class', 'download-gif')
-            expandGif.setAttribute('class', 'expand-gif')
-            divInfoGif.setAttribute('class', 'info-gif')
-            divUserGif.setAttribute('class', 'user-gif')
-            divTitleGif.setAttribute('class', 'titulo-gif')
+        divUserGif.appendChild(textUserGif)
+        divTitleGif.appendChild(textTitleGif)
+        divInfoGif.appendChild(divUserGif)
+        divInfoGif.appendChild(divTitleGif)
+        divComand.appendChild(divLikedGif)
+        divComand.appendChild(downloadGif)
+        divComand.appendChild(expandGif)
 
-            divUserGif.appendChild(textUserGif)
-            divTitleGif.appendChild(textTitleGif)
-            divInfoGif.appendChild(divTitleGif)
-            divInfoGif.appendChild(divUserGif)
-            divComand.appendChild(divLikedGif)
-            divComand.appendChild(downloadGif)
-            divComand.appendChild(expandGif)
+        divConteiner.appendChild(divViolet)
+        divConteiner.appendChild(divComand)
+        divConteiner.appendChild(divInfoGif)
 
-            divConteiner.appendChild(divViolet)
-            divConteiner.appendChild(divComand)
-            divConteiner.appendChild(divInfoGif)
-    //     }
+        
     })
 
 }

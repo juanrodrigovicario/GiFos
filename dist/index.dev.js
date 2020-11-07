@@ -121,6 +121,9 @@ function renderGifs() {
           renderGifs.innerHTML = '';
           gifs.forEach(function (element) {
             var url = element.images.original.url;
+            var gifTitle = element.title;
+            var userName = element.username;
+            var idGif = element.id;
             var divConteiner = document.createElement('div');
             var img = document.createElement('img');
             divConteiner.setAttribute('class', 'main-render-img');
@@ -128,11 +131,7 @@ function renderGifs() {
             img.setAttribute('class', 'img');
             img.setAttribute('alt', 'esperando cargar GIF');
             divConteiner.appendChild(img);
-            renderGifs.appendChild(divConteiner); // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
-            // ------ AL PASAR EL "MOUSEOVER" DE "IMG" MUESTRAS EL FONDO VIOLETA + CARACT. ---------
-            //     img.addEventListener('mouseover', showComands)
-            //     function showComands(){
-
+            renderGifs.appendChild(divConteiner);
             var divViolet = document.createElement('div');
             var divComand = document.createElement('div');
             var divLikedGif = document.createElement('div');
@@ -141,8 +140,8 @@ function renderGifs() {
             var divInfoGif = document.createElement('div');
             var divUserGif = document.createElement('div');
             var divTitleGif = document.createElement('div');
-            var textUserGif = document.createTextNode('user');
-            var textTitleGif = document.createTextNode('title');
+            var textUserGif = document.createTextNode("".concat(userName));
+            var textTitleGif = document.createTextNode("".concat(gifTitle));
             divViolet.setAttribute('class', 'violet');
             divComand.setAttribute('class', 'comand-gif');
             divLikedGif.setAttribute('class', 'liked-gif');
@@ -160,7 +159,11 @@ function renderGifs() {
             divComand.appendChild(expandGif);
             divConteiner.appendChild(divViolet);
             divConteiner.appendChild(divComand);
-            divConteiner.appendChild(divInfoGif); //     }
+            divConteiner.appendChild(divInfoGif);
+            divLikedGif.addEventListener('click', function () {
+              console.log(url);
+              localStorage.setItem("".concat(idGif), "".concat(url));
+            });
           });
           renderNameSearch(userSearch);
           delateSuggestios();
@@ -174,6 +177,12 @@ function renderGifs() {
       }
     }
   });
+} // ----------- ----------- CLICK PARA GUARDAR EN LOCAL STORAGE ----------- ------------- 
+// ----------- ----------- CLICK PARA GUARDAR EN LOCAL STORAGE ----------- ------------- 
+
+
+function saveLocalStorage() {
+  console.log(this.element);
 } // ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
 // ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
 
@@ -242,10 +251,7 @@ function render12GIfMas() {
             img.setAttribute('class', 'img');
             img.setAttribute('alt', 'esperando cargar GIF');
             divConteiner.appendChild(img);
-            renderGifs.appendChild(divConteiner); // img.addEventListener('mouseover', showComands)
-            // img.removeEventListener('mouseout', showComands)
-            // function showComands(){
-
+            renderGifs.appendChild(divConteiner);
             var divViolet = document.createElement('div');
             var divComand = document.createElement('div');
             var divLikedGif = document.createElement('div');
@@ -254,8 +260,8 @@ function render12GIfMas() {
             var divInfoGif = document.createElement('div');
             var divUserGif = document.createElement('div');
             var divTitleGif = document.createElement('div');
-            var textUserGif = document.createTextNode('user');
-            var textTitleGif = document.createTextNode('title');
+            var textUserGif = document.createTextNode('`${}`');
+            var textTitleGif = document.createTextNode('`${}`');
             divViolet.setAttribute('class', 'violet');
             divComand.setAttribute('class', 'comand-gif');
             divLikedGif.setAttribute('class', 'liked-gif');
@@ -266,14 +272,14 @@ function render12GIfMas() {
             divTitleGif.setAttribute('class', 'titulo-gif');
             divUserGif.appendChild(textUserGif);
             divTitleGif.appendChild(textTitleGif);
-            divInfoGif.appendChild(divTitleGif);
             divInfoGif.appendChild(divUserGif);
+            divInfoGif.appendChild(divTitleGif);
             divComand.appendChild(divLikedGif);
             divComand.appendChild(downloadGif);
             divComand.appendChild(expandGif);
             divConteiner.appendChild(divViolet);
             divConteiner.appendChild(divComand);
-            divConteiner.appendChild(divInfoGif); //     }
+            divConteiner.appendChild(divInfoGif);
           });
 
         case 10:
