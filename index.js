@@ -151,8 +151,16 @@ async function renderGifs(){
         divConteiner.appendChild(divInfoGif)
 
         divLikedGif.addEventListener('click', function(){
-            console.log(url)
-            localStorage.setItem(`${idGif}`,`${url}`)
+            // console.log(idGif)
+            // console.log(url)
+            // localStorage.setItem(`${idGif}`, `${url}`)
+            // console.log(localStorage.idGif)
+            // console.log(element)
+            // localStorage.setItem(`${idGif}`,`${url}`)
+            // console.log(localStorage)
+            // localStorage.clear();
+            localStorage.setItem(`${idGif}`, JSON.stringify(element))
+            console.log(localStorage)
         })
 
     })

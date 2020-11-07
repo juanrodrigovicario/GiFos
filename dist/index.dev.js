@@ -161,8 +161,16 @@ function renderGifs() {
             divConteiner.appendChild(divComand);
             divConteiner.appendChild(divInfoGif);
             divLikedGif.addEventListener('click', function () {
-              console.log(url);
-              localStorage.setItem("".concat(idGif), "".concat(url));
+              // console.log(idGif)
+              // console.log(url)
+              // localStorage.setItem(`${idGif}`, `${url}`)
+              // console.log(localStorage.idGif)
+              // console.log(element)
+              // localStorage.setItem(`${idGif}`,`${url}`)
+              // console.log(localStorage)
+              // localStorage.clear();
+              localStorage.setItem("".concat(idGif), JSON.stringify(element));
+              console.log(localStorage);
             });
           });
           renderNameSearch(userSearch);
