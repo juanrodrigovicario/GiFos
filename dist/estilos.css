@@ -165,6 +165,16 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+.main .render-gifs .main-render-img .comand-gif .favorite-gif {
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  background-color: white;
+  border-radius: 4px;
+  background-image: url(../img/icon-fav-active.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
 .main .render-gifs .main-render-img .comand-gif .download-gif {
   width: 32px;
   height: 32px;
@@ -229,6 +239,27 @@
   padding: 10px 25px 10px 25px;
   color: white;
   cursor: pointer;
+}
+
+.favorite {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+}
+.favorite .logo-favorite {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+}
+.favorite .sin-gifs-favoritos {
+  text-align: center;
+  margin: 100px;
+  font-family: "Montserrat", sans-serif;
+  color: #50E3C2;
+  font-weight: 700;
+  font-size: 22px;
 }
 
 .trending-section {

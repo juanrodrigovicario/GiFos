@@ -159,8 +159,19 @@ async function renderGifs(){
             // localStorage.setItem(`${idGif}`,`${url}`)
             // console.log(localStorage)
             // localStorage.clear();
-            localStorage.setItem(`${idGif}`, JSON.stringify(element))
-            console.log(localStorage)
+            if(localStorage.hasOwnProperty(idGif)!=false){
+                divLikedGif.classList.toggle('favorite-gif');
+                divLikedGif.classList.toggle('liked-gif');
+                localStorage.removeItem(`${idGif}`)
+                console.log(localStorage)
+            }else{
+                console.log('no la tinen')
+                divLikedGif.classList.toggle('favorite-gif');
+                divLikedGif.classList.toggle('liked-gif');
+                localStorage.setItem(`${idGif}`, JSON.stringify(element))
+                console.log(localStorage)
+            }
+            
         })
 
     })
@@ -327,3 +338,46 @@ flechaIzquierda.addEventListener('click', () =>{
     contenedorSlider.scrollLeft = sliderWidthInit -= 357;
 }
 )
+
+
+// ----------- ----------- FAVORITE SECCTION ----------- ------------- 
+// ----------- ----------- FAVORITE SECCTION ----------- ------------- 
+
+const favoriteButton = document.getElementById('boton-prueba1')
+
+favoriteButton.addEventListener('click', function(){
+    const sectionSerch = document.getElementById('section-serch')
+    const sectionMain= document.getElementById('main')
+    const favorite = document.getElementById('favorite')
+    sectionSerch.style.display = "none";
+    sectionMain.style.display = "none";
+    favorite.style.display = "flex";
+
+    showFavoritesGifs()
+})
+
+// ----------- ----------- RENDERIZADO DE GIFS FAVORITOS ----------- ------------- 
+// ----------- ----------- RENDERIZADO DE GIFS FAVORITOS ----------- ------------- 
+
+function showFavoritesGifs(){
+    console.log(localStorage)
+    if(localStorage.length === 0){
+        
+    }else{
+
+    }
+}
+
+// ----------- ----------- REINICIO DE PAGINA ----------- ------------- 
+// ----------- ----------- REINICIO DE PAGINA----------- ------------- 
+
+
+const logo = document.getElementById('logo-desktop')
+logo.addEventListener('click', function(){
+    const sectionSerch = document.getElementById('section-serch')
+    const sectionMain = document.getElementById('main')
+    const favorite = document.getElementById('favorite')
+    sectionSerch.style.display = "flex";
+    sectionMain.style.display = "flex";
+    favorite.style.display = "none";
+})

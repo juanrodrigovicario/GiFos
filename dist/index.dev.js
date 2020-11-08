@@ -169,8 +169,18 @@ function renderGifs() {
               // localStorage.setItem(`${idGif}`,`${url}`)
               // console.log(localStorage)
               // localStorage.clear();
-              localStorage.setItem("".concat(idGif), JSON.stringify(element));
-              console.log(localStorage);
+              if (localStorage.hasOwnProperty(idGif) != false) {
+                divLikedGif.classList.toggle('favorite-gif');
+                divLikedGif.classList.toggle('liked-gif');
+                localStorage.removeItem("".concat(idGif));
+                console.log(localStorage);
+              } else {
+                console.log('no la tinen');
+                divLikedGif.classList.toggle('favorite-gif');
+                divLikedGif.classList.toggle('liked-gif');
+                localStorage.setItem("".concat(idGif), JSON.stringify(element));
+                console.log(localStorage);
+              }
             });
           });
           renderNameSearch(userSearch);
@@ -356,4 +366,35 @@ flechaDerecha.addEventListener('click', function () {
 });
 flechaIzquierda.addEventListener('click', function () {
   contenedorSlider.scrollLeft = sliderWidthInit -= 357;
+}); // ----------- ----------- FAVORITE SECCTION ----------- ------------- 
+// ----------- ----------- FAVORITE SECCTION ----------- ------------- 
+
+var favoriteButton = document.getElementById('boton-prueba1');
+favoriteButton.addEventListener('click', function () {
+  var sectionSerch = document.getElementById('section-serch');
+  var sectionMain = document.getElementById('main');
+  var favorite = document.getElementById('favorite');
+  sectionSerch.style.display = "none";
+  sectionMain.style.display = "none";
+  favorite.style.display = "flex";
+  showFavoritesGifs();
+}); // ----------- ----------- RENDERIZADO DE GIFS FAVORITOS ----------- ------------- 
+// ----------- ----------- RENDERIZADO DE GIFS FAVORITOS ----------- ------------- 
+
+function showFavoritesGifs() {
+  console.log(localStorage);
+
+  if (localStorage.length === 0) {} else {}
+} // ----------- ----------- REINICIO DE PAGINA ----------- ------------- 
+// ----------- ----------- REINICIO DE PAGINA----------- ------------- 
+
+
+var logo = document.getElementById('logo-desktop');
+logo.addEventListener('click', function () {
+  var sectionSerch = document.getElementById('section-serch');
+  var sectionMain = document.getElementById('main');
+  var favorite = document.getElementById('favorite');
+  sectionSerch.style.display = "flex";
+  sectionMain.style.display = "flex";
+  favorite.style.display = "none";
 });

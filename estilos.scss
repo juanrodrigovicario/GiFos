@@ -177,6 +177,16 @@ $color-hover: #9CAFC3;
                     background-repeat: no-repeat;
                     background-position: center;
                 }
+                .favorite-gif{
+                    width: 32px;
+                    height: 32px;
+                    margin: 4px;
+                    background-color: white;
+                    border-radius: 4px;
+                    background-image: url(../img/icon-fav-active.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
                 .download-gif{
                     width: 32px;
                     height: 32px;
@@ -254,6 +264,27 @@ $color-hover: #9CAFC3;
             color: white;
             cursor: pointer;
         }
+    }
+}
+
+.favorite{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    .logo-favorite{
+        text-align: center;
+        font-family: $font-family-Montserrats;
+        font-weight: 700;
+        font-size: 25px;
+    }
+    .sin-gifs-favoritos{
+        text-align: center;
+        margin: 100px;
+        font-family: $font-family-Montserrats;
+        color: $color-green;
+        font-weight: 700;
+        font-size: 22px;
     }
 }
 
