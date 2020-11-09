@@ -245,6 +245,7 @@
   display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: 10px;
 }
 .favorite .logo-favorite {
@@ -264,6 +265,110 @@
 }
 .favorite .sin-gifs-favoritos .img-favorite {
   margin: 20px;
+}
+.favorite .render-gifs-favorite {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  grid-gap: 10px;
+}
+.favorite .render-gifs-favorite .favorite-render-img {
+  width: 260px;
+  height: 200px;
+  background-color: #f0f0f0;
+  position: relative;
+}
+.favorite .render-gifs-favorite .favorite-render-img .img-favorite {
+  width: 260px;
+  height: 200px;
+  z-index: 0;
+  position: relative;
+}
+.favorite .render-gifs-favorite .favorite-render-img .violet-favorite {
+  width: 260px;
+  height: 200px;
+  background-color: #572EE5;
+  transform: translateY(-204px);
+  opacity: 0.6;
+  z-index: 1;
+  position: absolute;
+  display: none;
+}
+.favorite .render-gifs-favorite .favorite-render-img .comand-gif-favorite {
+  display: none;
+  justify-content: flex-end;
+  transform: translateY(-200px);
+  position: relative;
+  z-index: 20;
+}
+.favorite .render-gifs-favorite .favorite-render-img .comand-gif-favorite .liked-gif-favorite {
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  background-image: url(../img/icon-fav.svg);
+}
+.favorite .render-gifs-favorite .favorite-render-img .comand-gif-favorite .liked-gif-favorite:hover {
+  background-image: url(../img/icon-fav-hover.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.favorite .render-gifs-favorite .favorite-render-img .comand-gif-favorite .favorite-gif {
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  background-color: white;
+  border-radius: 4px;
+  background-image: url(../img/icon-fav-active.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.favorite .render-gifs-favorite .favorite-render-img .comand-gif-favorite .download-gif-favorite {
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  background-image: url(../img/icon-download.svg);
+}
+.favorite .render-gifs-favorite .favorite-render-img .comand-gif-favorite .download-gif-favorite:hover {
+  background-image: url(../img/icon-download-hover.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.favorite .render-gifs-favorite .favorite-render-img .comand-gif-favorite .expand-gif-favorite {
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  background-image: url(../img/icon-max-normal.svg);
+}
+.favorite .render-gifs-favorite .favorite-render-img .comand-gif-favorite .expand-gif-favorite:hover {
+  background-image: url(../img/icon-max-hover.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.favorite .render-gifs-favorite .favorite-render-img .info-gif-favorite {
+  display: none;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 85px;
+  transform: translateY(-200px);
+  z-index: 20;
+  position: relative;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+.favorite .render-gifs-favorite .favorite-render-img .info-gif-favorite .user-gif-favorite {
+  margin: 4px 12px;
+}
+.favorite .render-gifs-favorite .favorite-render-img .info-gif-favorite .titulo-gif-favorite {
+  margin: 4px 12px;
+  font-weight: bold;
+}
+.favorite .render-gifs-favorite .favorite-render-img:hover .violet-favorite {
+  display: block;
+}
+.favorite .render-gifs-favorite .favorite-render-img:hover .comand-gif-favorite, .favorite .render-gifs-favorite .favorite-render-img:hover .info-gif-favorite {
+  display: flex;
 }
 
 .trending-section {

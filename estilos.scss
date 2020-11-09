@@ -271,6 +271,7 @@ $color-hover: #9CAFC3;
     display: none;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin: 10px;
     .logo-favorite{
         text-align: center;
@@ -290,6 +291,117 @@ $color-hover: #9CAFC3;
             margin: 20px;
         }
     }
+    .render-gifs-favorite{
+        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-items: center;
+        grid-gap:10px;
+        .favorite-render-img{
+            width: 260px;
+            height: 200px;
+            background-color: rgb(240, 240, 240);
+            position: relative;
+            .img-favorite{
+                width: 260px;
+                height: 200px;
+                z-index: 0;
+                position: relative;
+            }
+            .violet-favorite{
+                width: 260px;
+                height: 200px;
+                background-color: $color-violet;
+                transform: translateY(-204px);
+                opacity: 0.6;
+                z-index: 1;
+                position: absolute;
+                display: none;
+            }
+            .comand-gif-favorite{
+                display: none;
+                justify-content: flex-end;
+                // position: absolute;
+                transform: translateY(-200px);
+                position: relative;
+                z-index: 20;
+                .liked-gif-favorite{
+                    width: 32px;
+                    height: 32px;
+                    margin: 4px;
+                    background-image: url(../img/icon-fav.svg);
+                }
+                .liked-gif-favorite:hover{
+                    background-image: url(../img/icon-fav-hover.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                .favorite-gif{
+                    width: 32px;
+                    height: 32px;
+                    margin: 4px;
+                    background-color: white;
+                    border-radius: 4px;
+                    background-image: url(../img/icon-fav-active.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                .download-gif-favorite{
+                    width: 32px;
+                    height: 32px;
+                    margin: 4px;
+                    background-image: url(../img/icon-download.svg);
+                }
+                .download-gif-favorite:hover{
+                    background-image: url(../img/icon-download-hover.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                .expand-gif-favorite{
+                    width: 32px;
+                    height: 32px;
+                    margin: 4px;
+                    background-image: url(../img/icon-max-normal.svg);
+                }
+                .expand-gif-favorite:hover{
+                    background-image: url(../img/icon-max-hover.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+            .info-gif-favorite{
+                display: none;
+                flex-direction: column;
+                text-align: left;
+                margin-top: 85px;
+                transform: translateY(-200px);
+                z-index: 20;
+                position: relative;
+                color:#fff;
+                font-family: $font-family-Roboto;
+                font-size: 16px;
+                .user-gif-favorite{
+                    margin: 4px 12px;
+                }
+                .titulo-gif-favorite{
+                    margin: 4px 12px;
+                    font-weight: bold;
+                }
+            }
+        
+            // .img:hover ~.comand-gif,
+            // .img:hover ~.info-gif{
+            //     display: flex;
+            // }
+        }
+        .favorite-render-img:hover .violet-favorite{
+            display: block;
+        }
+        .favorite-render-img:hover .comand-gif-favorite, .favorite-render-img:hover .info-gif-favorite{
+            display: flex;
+        }
+    }    
+        
 }
 
 .trending-section{

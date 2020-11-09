@@ -324,6 +324,9 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 10px;
 }
 
@@ -346,6 +349,33 @@
 
 .favorite .sin-gifs-favoritos .img-favorite {
   margin: 20px;
+}
+
+.favorite .render-gifs-favorite {
+  width: 80%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  grid-gap: 10px;
+}
+
+.favorite .render-gifs-favorite .favorite-render-img {
+  width: 260px;
+  height: 200px;
+  background-color: #dfdfdf;
+  position: relative;
+}
+
+.favorite .render-gifs-favorite .main-render-img-favorite:hover .violet-favorite {
+  display: block;
+}
+
+.favorite .render-gifs-favorite .main-render-img-favorite:hover .comand-gif-favorite, .favorite .render-gifs-favorite .main-render-img-favorite:hover .info-gif-favorites {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .trending-section {
