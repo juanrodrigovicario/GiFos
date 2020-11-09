@@ -27,6 +27,9 @@ $color-hover: #9CAFC3;
     width: 80%;
     margin: auto;
     justify-content: space-between;
+    .menu-desktop-logo{
+        cursor: pointer;
+    }
     .menu-mobile-logo, #menu-mobile, .menu-mobile-cross{
         display: none;
     }
@@ -267,6 +270,11 @@ $color-hover: #9CAFC3;
     }
 }
 
+
+//  -------------  ------------- SECCION FAVORITOS  ------------- -------------
+//  -------------  ------------- SECCION FAVORITOS  ------------- -------------
+//  -------------  ------------- SECCION FAVORITOS  ------------- -------------
+
 .favorite{
     display: none;
     flex-direction: column;
@@ -278,11 +286,12 @@ $color-hover: #9CAFC3;
         font-family: $font-family-Montserrats;
         font-weight: 700;
         font-size: 25px;
+        margin: 30px;
     }
     .sin-gifs-favoritos{
         display: block;
         text-align: center;
-        margin: 100px;
+        margin: 80px;
         font-family: $font-family-Montserrats;
         color: $color-green;
         font-weight: 700;

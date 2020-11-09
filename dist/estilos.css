@@ -19,6 +19,9 @@
   margin: auto;
   justify-content: space-between;
 }
+.menu-header .menu-desktop-logo {
+  cursor: pointer;
+}
 .menu-header .menu-mobile-logo, .menu-header #menu-mobile, .menu-header .menu-mobile-cross {
   display: none;
 }
@@ -253,11 +256,12 @@
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 25px;
+  margin: 30px;
 }
 .favorite .sin-gifs-favoritos {
   display: block;
   text-align: center;
-  margin: 100px;
+  margin: 80px;
   font-family: "Montserrat", sans-serif;
   color: #50E3C2;
   font-weight: 700;

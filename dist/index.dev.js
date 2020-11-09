@@ -145,6 +145,11 @@ function renderGifs() {
             divViolet.setAttribute('class', 'violet');
             divComand.setAttribute('class', 'comand-gif');
             divLikedGif.setAttribute('class', 'liked-gif');
+
+            if (localStorage.hasOwnProperty("".concat(idGif))) {
+              divLikedGif.setAttribute('class', 'favorite-gif');
+            }
+
             downloadGif.setAttribute('class', 'download-gif');
             expandGif.setAttribute('class', 'expand-gif');
             divInfoGif.setAttribute('class', 'info-gif');
@@ -161,14 +166,6 @@ function renderGifs() {
             divConteiner.appendChild(divComand);
             divConteiner.appendChild(divInfoGif);
             divLikedGif.addEventListener('click', function () {
-              // console.log(idGif)
-              // console.log(url)
-              // localStorage.setItem(`${idGif}`, `${url}`)
-              // console.log(localStorage.idGif)
-              // console.log(element)
-              // localStorage.setItem(`${idGif}`,`${url}`)
-              // console.log(localStorage)
-              // localStorage.clear();
               if (localStorage.hasOwnProperty(idGif) != false) {
                 divLikedGif.classList.toggle('favorite-gif');
                 divLikedGif.classList.toggle('liked-gif');
@@ -376,6 +373,8 @@ favoriteButton.addEventListener('click', function () {
   sectionSerch.style.display = "none";
   sectionMain.style.display = "none";
   favorite.style.display = "flex";
+  var renderGifsFavorites = document.getElementById('render-gifs-favorite');
+  renderGifsFavorites.innerHTML = "";
   showFavoritesGifs();
 }); // ----------- ----------- RENDERIZADO DE GIFS FAVORITOS ----------- ------------- 
 // ----------- ----------- RENDERIZADO DE GIFS FAVORITOS ----------- ------------- 
@@ -395,11 +394,11 @@ function showFavoritesGifs() {
 
       var url = gifJson.images.original.url;
       var gifTitle = gifJson.title;
-      var userName = gifJson.username; // const idGif = gifJson.id
+      var userName = gifJson.username;
+      var idGif = gifJson.id; // console.log(url)
+      // console.log(gifTitle)
+      // console.log(userName)
 
-      console.log(url);
-      console.log(gifTitle);
-      console.log(userName);
       var renderGifs = document.getElementById('render-gifs-favorite');
       var divConteiner = document.createElement('div');
       var img = document.createElement('img');
@@ -437,6 +436,10 @@ function showFavoritesGifs() {
       divConteiner.appendChild(divViolet);
       divConteiner.appendChild(divComand);
       divConteiner.appendChild(divInfoGif);
+
+      if (localStorage.hasOwnProperty("".concat(idGif))) {
+        divLikedGif.setAttribute('class', 'favorite-gif');
+      }
     });
   }
 } // ----------- ----------- REINICIO DE PAGINA ----------- ------------- 

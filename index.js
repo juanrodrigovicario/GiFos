@@ -132,6 +132,9 @@ async function renderGifs(){
         divViolet.setAttribute('class', 'violet')
         divComand.setAttribute('class', 'comand-gif')
         divLikedGif.setAttribute('class', 'liked-gif')
+        if(localStorage.hasOwnProperty(`${idGif}`)){
+            divLikedGif.setAttribute('class', 'favorite-gif')
+        }
         downloadGif.setAttribute('class', 'download-gif')
         expandGif.setAttribute('class', 'expand-gif')
         divInfoGif.setAttribute('class', 'info-gif')
@@ -151,14 +154,7 @@ async function renderGifs(){
         divConteiner.appendChild(divInfoGif)
 
         divLikedGif.addEventListener('click', function(){
-            // console.log(idGif)
-            // console.log(url)
-            // localStorage.setItem(`${idGif}`, `${url}`)
-            // console.log(localStorage.idGif)
-            // console.log(element)
-            // localStorage.setItem(`${idGif}`,`${url}`)
-            // console.log(localStorage)
-            // localStorage.clear();
+            
             if(localStorage.hasOwnProperty(idGif)!=false){
                 divLikedGif.classList.toggle('favorite-gif');
                 divLikedGif.classList.toggle('liked-gif');
@@ -353,6 +349,9 @@ favoriteButton.addEventListener('click', function(){
     sectionMain.style.display = "none";
     favorite.style.display = "flex";
 
+    const renderGifsFavorites = document.getElementById('render-gifs-favorite')
+    renderGifsFavorites.innerHTML = "";
+
     showFavoritesGifs()
 })
 
@@ -374,10 +373,10 @@ function showFavoritesGifs(){
             const url = gifJson.images.original.url
             const gifTitle = gifJson.title
             const userName = gifJson.username
-            // const idGif = gifJson.id
-            console.log(url)
-            console.log(gifTitle )
-            console.log(userName)
+            const idGif = gifJson.id
+            // console.log(url)
+            // console.log(gifTitle)
+            // console.log(userName)
             
             const renderGifs = document.getElementById('render-gifs-favorite')
             const divConteiner = document.createElement('div')
@@ -422,6 +421,10 @@ function showFavoritesGifs(){
             divConteiner.appendChild(divViolet)
             divConteiner.appendChild(divComand)
             divConteiner.appendChild(divInfoGif)
+
+            if(localStorage.hasOwnProperty(`${idGif}`)){
+                divLikedGif.setAttribute('class', 'favorite-gif')
+            }
         })
     }
 }
