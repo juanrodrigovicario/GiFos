@@ -279,12 +279,16 @@ $color-hover: #9CAFC3;
         font-size: 25px;
     }
     .sin-gifs-favoritos{
+        display: block;
         text-align: center;
         margin: 100px;
         font-family: $font-family-Montserrats;
         color: $color-green;
         font-weight: 700;
         font-size: 22px;
+        .img-favorite{
+            margin: 20px;
+        }
     }
 }
 

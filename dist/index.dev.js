@@ -197,11 +197,10 @@ function renderGifs() {
   });
 } // ----------- ----------- CLICK PARA GUARDAR EN LOCAL STORAGE ----------- ------------- 
 // ----------- ----------- CLICK PARA GUARDAR EN LOCAL STORAGE ----------- ------------- 
-
-
-function saveLocalStorage() {
-  console.log(this.element);
-} // ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
+// function saveLocalStorage(){
+//     console.log(this.element)
+// }
+// ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
 // ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
 
 
@@ -382,9 +381,64 @@ favoriteButton.addEventListener('click', function () {
 // ----------- ----------- RENDERIZADO DE GIFS FAVORITOS ----------- ------------- 
 
 function showFavoritesGifs() {
-  console.log(localStorage);
+  // console.log(localStorage)
+  var sinGifsFavoritos = document.getElementById('sin-gifs-favoritos');
+  var showStorage = localStorage;
 
-  if (localStorage.length === 0) {} else {}
+  if (localStorage.length === 0) {
+    sinGifsFavoritos.style.display = 'block';
+  } else {
+    sinGifsFavoritos.style.display = 'none'; // console.log(showStorage)
+
+    Object.keys(showStorage).forEach(function (gif) {
+      var gifJson = JSON.parse(localStorage.getItem(gif)); // console.log(gifJson)
+
+      var url = gifJson.images.original.url;
+      var gifTitle = gifJson.title;
+      var userName = gifJson.username; // const idGif = gifJson.id
+      // console.log(url)
+      // console.log(gifTitle )
+      // console.log(userName)
+
+      var renderGifs = document.getElementById('render-gifs-favorite');
+      var divConteiner = document.createElement('div');
+      var img = document.createElement('img');
+      divConteiner.setAttribute('class', 'main-render-img');
+      img.setAttribute('src', "".concat(url));
+      img.setAttribute('class', 'img');
+      img.setAttribute('alt', 'esperando cargar GIF');
+      divConteiner.appendChild(img);
+      renderGifs.appendChild(divConteiner);
+      var divViolet = document.createElement('div');
+      var divComand = document.createElement('div');
+      var divLikedGif = document.createElement('div');
+      var downloadGif = document.createElement('div');
+      var expandGif = document.createElement('div');
+      var divInfoGif = document.createElement('div');
+      var divUserGif = document.createElement('div');
+      var divTitleGif = document.createElement('div');
+      var textUserGif = document.createTextNode("".concat(userName));
+      var textTitleGif = document.createTextNode("".concat(gifTitle));
+      divViolet.setAttribute('class', 'violet');
+      divComand.setAttribute('class', 'comand-gif');
+      divLikedGif.setAttribute('class', 'liked-gif');
+      downloadGif.setAttribute('class', 'download-gif');
+      expandGif.setAttribute('class', 'expand-gif');
+      divInfoGif.setAttribute('class', 'info-gif');
+      divUserGif.setAttribute('class', 'user-gif');
+      divTitleGif.setAttribute('class', 'titulo-gif');
+      divUserGif.appendChild(textUserGif);
+      divTitleGif.appendChild(textTitleGif);
+      divInfoGif.appendChild(divTitleGif);
+      divInfoGif.appendChild(divUserGif);
+      divComand.appendChild(divLikedGif);
+      divComand.appendChild(downloadGif);
+      divComand.appendChild(expandGif);
+      divConteiner.appendChild(divViolet);
+      divConteiner.appendChild(divComand);
+      divConteiner.appendChild(divInfoGif);
+    });
+  }
 } // ----------- ----------- REINICIO DE PAGINA ----------- ------------- 
 // ----------- ----------- REINICIO DE PAGINA----------- ------------- 
 

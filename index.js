@@ -187,9 +187,9 @@ async function renderGifs(){
 // ----------- ----------- CLICK PARA GUARDAR EN LOCAL STORAGE ----------- ------------- 
 // ----------- ----------- CLICK PARA GUARDAR EN LOCAL STORAGE ----------- ------------- 
 
-function saveLocalStorage(){
-    console.log(this.element)
-}
+// function saveLocalStorage(){
+//     console.log(this.element)
+// }
 
 
 // ------ RENDERIZA EL NOMBRE DE "LA BUSQEUDA" AL PRECIONARSE "ENTER" PARA BUSCAR  ---------
@@ -360,11 +360,69 @@ favoriteButton.addEventListener('click', function(){
 // ----------- ----------- RENDERIZADO DE GIFS FAVORITOS ----------- ------------- 
 
 function showFavoritesGifs(){
-    console.log(localStorage)
+    // console.log(localStorage)
+    const sinGifsFavoritos = document.getElementById('sin-gifs-favoritos')
+    const showStorage = localStorage
     if(localStorage.length === 0){
-        
+        sinGifsFavoritos.style.display = 'block'
     }else{
+        sinGifsFavoritos.style.display = 'none'
+        // console.log(showStorage)
+        Object.keys(showStorage).forEach( gif => {
+            const gifJson = JSON.parse(localStorage.getItem(gif))
+            // console.log(gifJson)
+            const url = gifJson.images.original.url
+            const gifTitle = gifJson.title
+            const userName = gifJson.username
+            // const idGif = gifJson.id
+            // console.log(url)
+            // console.log(gifTitle )
+            // console.log(userName)
+            
+            const renderGifs = document.getElementById('render-gifs-favorite')
+            const divConteiner = document.createElement('div')
+            const img = document.createElement('img')
 
+            divConteiner.setAttribute('class', 'main-render-img')
+            img.setAttribute('src', `${url}`)
+            img.setAttribute('class', 'img')
+            img.setAttribute('alt', 'esperando cargar GIF')
+
+            divConteiner.appendChild(img)
+            renderGifs.appendChild(divConteiner)
+
+            const divViolet = document.createElement('div')
+            const divComand = document.createElement('div')
+            const divLikedGif = document.createElement('div')
+            const downloadGif = document.createElement('div')
+            const expandGif = document.createElement('div')
+            const divInfoGif = document.createElement('div')
+            const divUserGif = document.createElement('div')
+            const divTitleGif = document.createElement('div')
+            const textUserGif = document.createTextNode(`${userName}`)
+            const textTitleGif = document.createTextNode(`${gifTitle}`)
+            
+            divViolet.setAttribute('class', 'violet')
+            divComand.setAttribute('class', 'comand-gif')
+            divLikedGif.setAttribute('class', 'liked-gif')
+            downloadGif.setAttribute('class', 'download-gif')
+            expandGif.setAttribute('class', 'expand-gif')
+            divInfoGif.setAttribute('class', 'info-gif')
+            divUserGif.setAttribute('class', 'user-gif')
+            divTitleGif.setAttribute('class', 'titulo-gif')
+
+            divUserGif.appendChild(textUserGif)
+            divTitleGif.appendChild(textTitleGif)
+            divInfoGif.appendChild(divTitleGif)
+            divInfoGif.appendChild(divUserGif)
+            divComand.appendChild(divLikedGif)
+            divComand.appendChild(downloadGif)
+            divComand.appendChild(expandGif)
+
+            divConteiner.appendChild(divViolet)
+            divConteiner.appendChild(divComand)
+            divConteiner.appendChild(divInfoGif)
+        })
     }
 }
 
@@ -380,4 +438,5 @@ logo.addEventListener('click', function(){
     sectionSerch.style.display = "flex";
     sectionMain.style.display = "flex";
     favorite.style.display = "none";
+    
 })
